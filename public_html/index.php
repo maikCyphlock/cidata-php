@@ -7,9 +7,18 @@ $status = $_GET['status'] ?? '';
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Cidata — Internet por Fibra Óptica en Portuguesa y la Región Centro Occidental. Planes desde $25/mes. Velocidad simétrica, sin cortes.">
   <title>Cidata — Internet por Fibra Óptica</title>
+
+  <!-- Preconnect & Preload -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Nunito+Sans:wght@400;600;700&display=swap" as="style">
+  <link rel="preload" href="assets/img/woman.jpeg" as="image" fetchpriority="high">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Nunito+Sans:wght@400;600;700&display=swap">
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"></noscript>
 </head>
 <body>
 
@@ -18,7 +27,7 @@ $status = $_GET['status'] ?? '';
   <div class="container">
     <div class="nav-inner">
       <a href="#" class="nav-logo">
-        <img src="assets/img/logo-white.png" alt="Cidata">
+        <img src="assets/img/logo-white.png" alt="Cidata" width="160" height="46">
       </a>
       <ul class="nav-links" id="nav-links">
         <li><a href="#inicio">Inicio</a></li>
@@ -59,7 +68,7 @@ $status = $_GET['status'] ?? '';
 
       <div class="hero-visual">
         <div class="hero-visual-frame">
-          <img src="assets/img/woman.jpeg" alt="Cidata fibra óptica">
+          <img src="assets/img/woman.jpeg" alt="Cidata fibra óptica" width="826" height="1024" fetchpriority="high">
         </div>
 
         <div class="hero-popup" id="hero-popup">
@@ -320,7 +329,7 @@ $status = $_GET['status'] ?? '';
       <!-- Post 1 -->
       <article class="post-card">
         <div class="post-card__image-wrap">
-          <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800&auto=format&fit=crop" alt="Smart home" class="post-card__image">
+          <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800&auto=format&fit=crop" alt="Smart home" class="post-card__image" width="800" height="500" loading="lazy">
           <span class="post-card__tag">Guía</span>
         </div>
         <div class="post-card__content">
@@ -335,7 +344,7 @@ $status = $_GET['status'] ?? '';
       <!-- Post 2 -->
       <article class="post-card">
         <div class="post-card__image-wrap">
-          <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=800&auto=format&fit=crop" alt="Optic cable" class="post-card__image">
+          <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=800&auto=format&fit=crop" alt="Optic cable" class="post-card__image" width="800" height="500" loading="lazy">
           <span class="post-card__tag">Tecnología</span>
         </div>
         <div class="post-card__content">
@@ -350,7 +359,7 @@ $status = $_GET['status'] ?? '';
       <!-- Post 3 -->
       <article class="post-card">
         <div class="post-card__image-wrap">
-          <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=800&auto=format&fit=crop" alt="Router Wi-Fi" class="post-card__image">
+          <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=800&auto=format&fit=crop" alt="Router Wi-Fi" class="post-card__image" width="800" height="600" loading="lazy">
           <span class="post-card__tag">Tips</span>
         </div>
         <div class="post-card__content">
@@ -365,7 +374,7 @@ $status = $_GET['status'] ?? '';
       <!-- Post 4 -->
       <article class="post-card">
         <div class="post-card__image-wrap">
-          <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=800&auto=format&fit=crop" alt="Payment" class="post-card__image">
+          <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=800&auto=format&fit=crop" alt="Payment" class="post-card__image" width="800" height="533" loading="lazy">
           <span class="post-card__tag">Soporte</span>
         </div>
         <div class="post-card__content">
@@ -456,7 +465,7 @@ $status = $_GET['status'] ?? '';
   <div class="container">
     <div class="footer-grid">
       <div>
-        <img src="assets/img/logo-white.png" alt="Cidata" class="footer-logo">
+        <img src="assets/img/logo-white.png" alt="Cidata" class="footer-logo" width="160" height="46" loading="lazy">
         <p class="footer-tagline">
           Internet por fibra óptica para hogares y empresas en Portuguesa y la Región Centro Occidental. Rápido, confiable y sin vueltas.
         </p>
@@ -497,9 +506,10 @@ $status = $_GET['status'] ?? '';
   </div>
 </footer>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="assets/js/main.js" defer></script>
 </body>
 </html>

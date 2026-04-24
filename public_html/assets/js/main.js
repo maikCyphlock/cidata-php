@@ -113,14 +113,16 @@ document.addEventListener('DOMContentLoaded', function () {
   reveal('.section-title', { y: 30, duration: 0.65 });
   reveal('.plans-tabs',    { y: 20, duration: 0.55 });
 
-  gsap.from('.feature-card', {
+  gsap.from('.advantages__card', {
     y: 40, autoAlpha: 0, duration: 0.6, stagger: 0.1, ease: 'power3.out',
-    scrollTrigger: { trigger: '.features', start: 'top 85%' }
+    scrollTrigger: { trigger: '.advantages__grid', start: 'top 85%' },
+    clearProps: 'transform'
   });
 
   gsap.from('.plan-card', {
     y: 60, autoAlpha: 0, duration: 0.75, stagger: 0.15, ease: 'power3.out',
-    scrollTrigger: { trigger: '.plans-grid', start: 'top 82%' }
+    scrollTrigger: { trigger: '.plans-grid', start: 'top 82%' },
+    clearProps: 'transform'
   });
 
   gsap.from('.coverage-form', {
@@ -141,14 +143,16 @@ document.addEventListener('DOMContentLoaded', function () {
     scrollTrigger: { trigger: '.about-stats', start: 'top 85%' }
   });
 
-  gsap.from('.testimonial', {
+  gsap.from('.review', {
     y: 40, autoAlpha: 0, duration: 0.6, stagger: 0.09, ease: 'power3.out',
-    scrollTrigger: { trigger: '.testimonials-grid', start: 'top 85%' }
+    scrollTrigger: { trigger: '.reviews__grid', start: 'top 85%' },
+    clearProps: 'transform'
   });
 
-  gsap.from('.blog-card', {
+  gsap.from('.post-card', {
     y: 50, autoAlpha: 0, duration: 0.7, stagger: 0.12, ease: 'power3.out',
-    scrollTrigger: { trigger: '.blog-grid', start: 'top 85%' }
+    scrollTrigger: { trigger: '.news__grid', start: 'top 85%' },
+    clearProps: 'transform'
   });
 
   gsap.from('.contact-visual', {
