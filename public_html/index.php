@@ -1,374 +1,449 @@
 <?php
-// Leer estado del formulario de contacto
 $status = $_GET['status'] ?? '';
 ?><!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Cidata — Internet por Fibra Óptica en Acarigua-Araure, Estado Portuguesa. Planes desde $25/mes. Velocidad simétrica, sin cortes, sin letra chica.">
-  <title>Cidata — Internet por Fibra Óptica en Acarigua-Araure</title>
+  <meta name="description" content="Cidata — Internet por Fibra Óptica en Portuguesa y la Región Centro Occidental. Planes desde $25/mes. Velocidad simétrica, sin cortes.">
+  <title>Cidata — Internet por Fibra Óptica</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════
-     NAV
-════════════════════════════════════════════ -->
+<!-- ═══════════════════════ NAV ═══════════════════════ -->
 <nav class="nav">
   <div class="container">
     <div class="nav-inner">
       <a href="#" class="nav-logo">
-        <img src="assets/img/logo-primary.png" alt="Cidata">
+        <img src="assets/img/logo-white.png" alt="Cidata">
       </a>
       <ul class="nav-links" id="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
         <li><a href="#planes">Planes</a></li>
-        <li><a href="#nosotros">Por qué Cidata</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-        <li><a href="#faq">Preguntas</a></li>
+        <li><a href="#contratos">Contratos y pagos</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#noticias">Noticias</a></li>
       </ul>
       <div class="nav-cta">
-        <a href="#planes" class="btn btn-sm btn-primary">Ver planes</a>
+        <a href="#contacto" class="btn btn-primary btn-sm">Contratar ahora</a>
         <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú">
-          <i data-lucide="menu" style="width:24px;height:24px"></i>
+          <i data-lucide="menu" style="width:22px;height:22px"></i>
         </button>
       </div>
     </div>
   </div>
 </nav>
 
-<!-- ═══════════════════════════════════════════
-     HERO
-════════════════════════════════════════════ -->
-<section class="hero">
-  <div class="hero-shape1"></div>
-  <div class="hero-shape2"></div>
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section class="hero" id="inicio">
   <div class="container">
     <div class="hero-inner">
       <div class="hero-text">
-        <div class="hero-eyebrow">Internet por Fibra Óptica</div>
+        <span class="hero-eyebrow">Internet por Fibra Óptica</span>
         <h1 class="hero-headline">
-          Internet que<br><span>vuela.</span><br>De verdad.
+          Internet sin límites<br>
+          para tu <span class="hl-grad">hogar y tu negocio</span>
         </h1>
         <p class="hero-sub">
-          Velocidad simétrica, sin cortes y sin letra chica.
-          Conecta todo lo que importa en Acarigua-Araure desde el primer día.
+          Planes de Internet por fibra óptica en Portuguesa y la Región Centro Occidental.
+          Velocidad simétrica, instalación rápida y soporte real.
         </p>
         <div class="hero-actions">
-          <a href="#planes" class="btn btn-primary btn-lg">Ver nuestros planes</a>
-          <a href="#contacto" class="btn btn-ghost btn-lg">Contratar ahora</a>
-        </div>
-        <div class="hero-trust">
-          <div class="trust-item">
-            <div class="trust-icon"><i data-lucide="zap" style="width:14px;height:14px"></i></div>
-            Instalación en 24h
-          </div>
-          <div class="trust-item">
-            <div class="trust-icon"><i data-lucide="shield-check" style="width:14px;height:14px"></i></div>
-            Sin permanencia
-          </div>
-          <div class="trust-item">
-            <div class="trust-icon"><i data-lucide="headphones" style="width:14px;height:14px"></i></div>
-            Soporte 24/7
-          </div>
+          <a href="#planes" class="btn btn-secondary btn-lg">Ver planes</a>
+          <a href="#cobertura" class="btn btn-ghost btn-lg">Verificar cobertura</a>
         </div>
       </div>
 
-      <!-- Hero visual: photo card con fondo de marca -->
       <div class="hero-visual">
-        <div class="hv-bg"></div>
-        <div class="hv-accent"></div>
-        <div class="hv-frame">
-          <img src="assets/img/woman.jpeg" alt="Cidata fibra óptica" class="hero-img">
+        <div class="hero-visual-frame">
+          <img src="assets/img/woman.jpeg" alt="Cidata fibra óptica">
         </div>
-        <!-- Ping — franja derecha, no tapa el rostro -->
-        <div class="hfloat hfloat-ping">
-          <div class="hfloat-label">Ping</div>
-          <div class="hfloat-ping-val">4ms</div>
-          <div class="hfloat-ping-note">Ultra bajo</div>
-        </div>
-        <!-- Velocidad y Streaming — franja azul inferior -->
-        <div class="hfloat hfloat-speed">
-          <div class="hfloat-label">Velocidad</div>
-          <div class="hfloat-speed-num">1 <span>Gbps</span></div>
-        </div>
-        <div class="hfloat hfloat-streaming">
-          <div class="hfloat-row">
-            <div class="hfloat-dot"></div>
-            <div class="hfloat-streaming-label">Streaming 4K</div>
+
+        <div class="hero-popup" id="hero-popup">
+          <button class="hero-popup-close" id="popup-close" aria-label="Cerrar">
+            <i data-lucide="x" style="width:12px;height:12px"></i>
+          </button>
+          <div class="hero-popup-title">¿Listo para conectarte?</div>
+          <div class="hero-popup-actions">
+            <a href="#contacto" class="btn btn-primary btn-sm">Contratar</a>
+            <a href="https://wa.me/" class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener">
+              <i data-lucide="message-circle" style="width:13px;height:13px"></i>
+              WhatsApp
+            </a>
           </div>
-          <div class="hfloat-val">Sin interrupciones</div>
         </div>
       </div>
-    </div><!-- /.hero-inner -->
+    </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     PLANES
-════════════════════════════════════════════ -->
+<!-- ═══════════════════════ ADVANTAGES ═══════════════════════ -->
+<section class="advantages">
+  <div class="container">
+    <div class="advantages__grid">
+      <article class="advantages__card advantages__card--pink">
+        <div class="advantages__icon">
+          <i data-lucide="home" style="width:24px;height:24px"></i>
+        </div>
+        <div class="advantages__content">
+          <h3 class="advantages__title">Planes a tu medida</h3>
+          <p class="advantages__text">Conectividad pensada para tu vida y tu trabajo.</p>
+        </div>
+      </article>
+
+      <article class="advantages__card advantages__card--blue">
+        <div class="advantages__icon">
+          <i data-lucide="headphones" style="width:24px;height:24px"></i>
+        </div>
+        <div class="advantages__content">
+          <h3 class="advantages__title">Atención humana</h3>
+          <p class="advantages__text">Siempre a tu lado con soporte real y garantizado.</p>
+        </div>
+      </article>
+
+      <article class="advantages__card advantages__card--purple">
+        <div class="advantages__icon">
+          <i data-lucide="shield-check" style="width:24px;height:24px"></i>
+        </div>
+        <div class="advantages__content">
+          <h3 class="advantages__title">Seguridad Total</h3>
+          <p class="advantages__text">Velocidad simétrica que te da tranquilidad absoluta.</p>
+        </div>
+      </article>
+
+      <article class="advantages__card advantages__card--mix">
+        <div class="advantages__icon">
+          <i data-lucide="radio" style="width:24px;height:24px"></i>
+        </div>
+        <div class="advantages__content">
+          <h3 class="advantages__title">Libertad Digital</h3>
+          <p class="advantages__text">Disfruta tu streaming y juegos sin pausas molestas.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ PLANES ═══════════════════════ -->
 <section class="plans section-pad" id="planes">
   <div class="container">
-    <div style="text-align:center">
-      <div class="section-label">Nuestros planes</div>
-      <h2 class="section-title">Elige el plan que va contigo.</h2>
-      <p style="color:var(--gray-600);font-size:17px;max-width:500px;margin:0 auto">
-        Todos incluyen fibra óptica real, velocidad simétrica e internet ilimitado.
-      </p>
+    <div class="plans-head">
+      <h2 class="section-title">La velocidad que tu vida necesita</h2>
+      <div class="plans-tabs" id="plans-tabs">
+        <button class="plans-tab active" data-tab="residenciales">Residenciales</button>
+        <button class="plans-tab" data-tab="corporativos">Corporativos</button>
+      </div>
     </div>
+
     <div class="plans-grid">
-
-      <!-- Plan Básico -->
+      <!-- Básico -->
       <div class="plan-card">
-        <div class="plan-head default">
-          <div class="plan-name dark">Básico</div>
-          <div class="plan-speed-n dark">300</div>
-          <div class="plan-mbps dark">Mbps</div>
+        <div class="plan-head h-blue">
+          300 Mbps
+          <small>Básico</small>
         </div>
         <div class="plan-body">
-          <div class="plan-price">
-            <div class="plan-price-main"><sup>$</sup>25</div>
-            <div class="plan-price-sub">por mes</div>
-          </div>
-          <p class="plan-ideal">Ideal para navegación básica</p>
+          <p class="plan-ideal">Ideal para navegación básica, streaming HD y teletrabajo ligero.</p>
           <ul class="plan-features">
-            <li><i data-lucide="check-circle" class="check" style="width:16px;height:16px"></i>Fibra óptica GPON</li>
-            <li><i data-lucide="check-circle" class="check" style="width:16px;height:16px"></i>Velocidad simétrica</li>
-            <li><i data-lucide="check-circle" class="check" style="width:16px;height:16px"></i>Streaming HD</li>
-            <li><i data-lucide="check-circle" class="check" style="width:16px;height:16px"></i>Navegación ilimitada</li>
-            <li><i data-lucide="check-circle" class="check" style="width:16px;height:16px"></i>Instalación en 24h</li>
+            <li><i data-lucide="check" class="check"></i>Conexión estable</li>
+            <li><i data-lucide="check" class="check"></i>Instalación rápida</li>
           </ul>
-          <a href="#contacto" class="plan-btn outline-btn" data-scroll-to="#contacto">Contratar plan</a>
+          <div class="plan-price"><sup>$</sup>25<span class="mes">/mes</span></div>
+          <a href="#contacto" class="btn btn-primary" data-scroll-to="#contacto">Contratar ahora</a>
         </div>
       </div>
 
-      <!-- Plan Pro — Más popular -->
+      <!-- Medio -->
       <div class="plan-card featured">
-        <div class="plan-head blue">
-          <div class="recommended-pill">Más popular</div>
-          <div class="plan-name inv" style="padding-top:14px">Pro</div>
-          <div class="plan-speed-n inv">600</div>
-          <div class="plan-mbps inv">Mbps</div>
+        <div class="plan-head h-pink">
+          600 Mbps
+          <small>Medio</small>
         </div>
         <div class="plan-body">
-          <div class="plan-price">
-            <div class="plan-price-main"><sup>$</sup>30</div>
-            <div class="plan-price-sub">por mes</div>
-          </div>
-          <p class="plan-ideal">Ideal para familias</p>
+          <p class="plan-ideal">Ideal para familias con varios dispositivos, videollamadas y juegos online.</p>
           <ul class="plan-features">
-            <li><i data-lucide="check-circle" class="check" style="width:16px;height:16px"></i>Fibra óptica GPON</li>
-            <li><i data-lucide="check-circle" class="check" style="width:16px;height:16px"></i>Velocidad simétrica</li>
-            <li><i data-lucide="check-circle" class="check" style="width:16px;height:16px"></i>Streaming 4K y gaming</li>
-            <li><i data-lucide="check-circle" class="check" style="width:16px;height:16px"></i>Baja latencia</li>
-            <li><i data-lucide="check-circle" class="check" style="width:16px;height:16px"></i>Soporte técnico preferencial</li>
+            <li><i data-lucide="check" class="check"></i>Streaming sin interrupciones</li>
+            <li><i data-lucide="check" class="check"></i>Excelente relación precio/velocidad</li>
           </ul>
-          <a href="#contacto" class="plan-btn pink-btn" data-scroll-to="#contacto">Contratar plan</a>
+          <div class="plan-price"><sup>$</sup>30<span class="mes">/mes</span></div>
+          <a href="#contacto" class="btn btn-primary" data-scroll-to="#contacto">Contratar ahora</a>
         </div>
       </div>
 
-      <!-- Plan Ultra -->
+      <!-- Ultra -->
       <div class="plan-card">
-        <div class="plan-head pink">
-          <div class="plan-name inv">Ultra</div>
-          <div class="plan-speed-n inv">1</div>
-          <div class="plan-mbps inv">Gbps</div>
+        <div class="plan-head h-ultra">
+          1 Gbps
+          <small>Ultra</small>
         </div>
         <div class="plan-body">
-          <div class="plan-price">
-            <div class="plan-price-main"><sup>$</sup>35</div>
-            <div class="plan-price-sub">por mes</div>
-          </div>
-          <p class="plan-ideal">Máxima velocidad</p>
+          <p class="plan-ideal">Ideal para gamers, creadores de contenido y hogares 100% conectados.</p>
           <ul class="plan-features">
-            <li><i data-lucide="check-circle" class="check" style="width:16px;height:16px"></i>Fibra óptica GPON</li>
-            <li><i data-lucide="check-circle" class="check" style="width:16px;height:16px"></i>Velocidad simétrica</li>
-            <li><i data-lucide="check-circle" class="check" style="width:16px;height:16px"></i>Dedicado para creadores</li>
-            <li><i data-lucide="check-circle" class="check" style="width:16px;height:16px"></i>Múltiples dispositivos</li>
-            <li><i data-lucide="check-circle" class="check" style="width:16px;height:16px"></i>Soporte 24/7 directo</li>
+            <li><i data-lucide="check" class="check"></i>Máxima velocidad</li>
+            <li><i data-lucide="check" class="check"></i>Soporte prioritario</li>
           </ul>
-          <a href="#contacto" class="plan-btn blue-btn" data-scroll-to="#contacto">Contratar plan</a>
-        </div>
-      </div>
-
-    </div><!-- /.plans-grid -->
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════
-     POR QUÉ CIDATA
-════════════════════════════════════════════ -->
-<section class="whyus section-pad" id="nosotros">
-  <div class="container">
-    <div style="text-align:center">
-      <div class="section-label">Por qué Cidata</div>
-      <h2 class="section-title">Fibra que se nota.</h2>
-    </div>
-    <div class="whyus-grid">
-      <div class="why-item">
-        <div class="why-icon-wrap blue">
-          <i data-lucide="zap" style="width:26px;height:26px"></i>
-        </div>
-        <div class="why-title">Velocidad real</div>
-        <div class="why-desc">Subes y bajas a la misma velocidad. Sin trampas, sin letra chica.</div>
-      </div>
-      <div class="why-item">
-        <div class="why-icon-wrap pink">
-          <i data-lucide="wifi" style="width:26px;height:26px"></i>
-        </div>
-        <div class="why-title">Red de fibra real</div>
-        <div class="why-desc">Tecnología GPON. La señal llega limpia hasta tu puerta.</div>
-      </div>
-      <div class="why-item">
-        <div class="why-icon-wrap blue">
-          <i data-lucide="trending-up" style="width:26px;height:26px"></i>
-        </div>
-        <div class="why-title">Sin límites</div>
-        <div class="why-desc">Netflix, trabajo, juegos, videollamadas. Todo al mismo tiempo, sin cortes.</div>
-      </div>
-      <div class="why-item">
-        <div class="why-icon-wrap pink">
-          <i data-lucide="headphones" style="width:26px;height:26px"></i>
-        </div>
-        <div class="why-title">Soporte humano</div>
-        <div class="why-desc">Cuando algo falla, atendemos. Sin bots, sin formularios eternos.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════
-     NUESTRA RED
-════════════════════════════════════════════ -->
-<section class="network section-pad" id="red">
-  <div class="container">
-    <div class="network-inner">
-      <div class="network-left">
-        <h2 class="network-title">Nuestra Red en<br><span class="network-title-blue">Crecimiento</span></h2>
-        <div class="network-list">
-          <div class="network-item">
-            <i data-lucide="globe" class="network-icon"></i>
-            <span class="network-city">Acarigua - Araure</span>
-            <span class="network-badge active">Activo</span>
-          </div>
-          <div class="network-item">
-            <i data-lucide="globe" class="network-icon"></i>
-            <span class="network-city">Guanare</span>
-            <span class="network-badge active">Activo</span>
-          </div>
-          <div class="network-item">
-            <i data-lucide="globe" class="network-icon"></i>
-            <span class="network-city">Turén</span>
-            <span class="network-badge active">Activo</span>
-          </div>
-          <div class="network-item">
-            <i data-lucide="globe" class="network-icon"></i>
-            <span class="network-city">San Carlos</span>
-            <span class="network-badge soon">Próximamente</span>
-          </div>
-        </div>
-      </div>
-      <div class="network-right">
-        <div class="network-map-wrap">
-          <div id="network-map" style="width:100%;height:340px;"></div>
+          <div class="plan-price"><sup>$</sup>35<span class="mes">/mes</span></div>
+          <a href="#contacto" class="btn btn-primary" data-scroll-to="#contacto">Contratar ahora</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     BANNER AZUL
-════════════════════════════════════════════ -->
-<div class="color-block blue-bg">
+<!-- ═══════════════════════ COBERTURA ═══════════════════════ -->
+<section class="coverage section-pad" id="cobertura">
   <div class="container">
-    <div class="color-block-inner">
+    <div class="coverage-inner">
+      <div class="coverage-form">
+        <h2>Verifica si tenemos cobertura en tu zona</h2>
+        <p>Queremos asegurarnos de que disfrutes de la mejor conexión por fibra óptica. Ingresa tu dirección y descubre si tenemos cobertura disponible en tu área.</p>
+        <label class="coverage-input-label" for="coverage-addr">Escribe tu dirección aquí</label>
+        <div class="coverage-input-group">
+          <input type="text" id="coverage-addr" placeholder="Introducir dirección">
+          <button type="button" class="btn btn-primary" id="coverage-check">Verificar cobertura</button>
+        </div>
+        <div class="coverage-map-wrap">
+          <div id="coverage-map"></div>
+        </div>
+      </div>
+
+      <div class="coverage-visual">
+        <div class="placeholder">
+          <i data-lucide="truck" style="width:48px;height:48px;margin-bottom:12px"></i>
+          <div>Cobertura que llega<br>hasta tu puerta</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ ABOUT / STATS ═══════════════════════ -->
+<section class="about section-pad" id="nosotros">
+  <div class="container">
+    <div class="about-inner">
       <div>
-        <h2>Instalación en 24 horas.<br>Sin costo inicial.</h2>
-        <p>Pide tu fibra hoy y mañana estás conectado. Sin depósito, sin equipos a pagar.</p>
+        <h2 class="about-title">10 años construyendo<br>confianza y velocidad</h2>
+        <p class="about-desc">
+          En CIDATA conectamos a las personas con sus deseos y necesidades a través de Internet
+          de fibra óptica. Rompemos los límites de la distancia con un servicio accesible, rápido y
+          seguro, diseñado para hogares y empresas.
+        </p>
+        <div class="about-cta-row">
+          <a href="#contacto" class="btn btn-primary">Conócenos</a>
+          <div class="about-tags">
+            <span class="about-tag">Fibra óptica</span>
+            <span class="about-tag plus">+</span>
+            <span class="about-tag">Conexión</span>
+            <span class="about-tag plus">+</span>
+            <span class="about-tag">Confianza</span>
+          </div>
+        </div>
       </div>
-      <a href="#contacto" class="btn btn-outline-white btn-lg">Contratar ahora</a>
+
+      <div class="about-stats">
+        <div class="stat">
+          <div class="stat-value">+10 <span class="unit">años</span></div>
+          <div class="stat-desc">de experiencia en telecomunicaciones.</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">1 <span class="unit">Gbps</span></div>
+          <div class="stat-desc">Velocidades de hasta 1Gbps en planes residenciales.</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value"><i data-lucide="signal" style="width:30px;height:30px;color:#a6e6ff"></i></div>
+          <div class="stat-desc">Cobertura en la Región Centro Occidental y Los Llanos.</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value"><i data-lucide="life-buoy" style="width:30px;height:30px;color:#ffb1c3"></i></div>
+          <div class="stat-desc">Soporte técnico confiable con atención personalizada.</div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- ═══════════════════════════════════════════
-     CONTACTO
-════════════════════════════════════════════ -->
+<!-- ═══════════════════════ REVIEWS ═══════════════════════ -->
+<section class="reviews" id="testimonios">
+  <div class="container">
+    <header class="reviews__header">
+      <h2 class="section-title">Tu experiencia es nuestra mejor referencia</h2>
+      <p class="reviews__intro">En CIDATA trabajamos para ofrecer un servicio confiable y accesible. Nada nos enorgullece más que la satisfacción de nuestros clientes.</p>
+    </header>
+
+    <div class="reviews__grid">
+      <?php
+        $reviews = [
+          ['name' => 'Carlos Rivas',      'date' => 'Abril 10, 2023', 'rating' => 5, 'initials' => 'CR', 'text' => 'Desde que cambié a CIDATA, mi conexión es estable y rápida. El soporte siempre responde a tiempo.'],
+          ['name' => 'Joaquín Herrera',   'date' => 'Mayo 5, 2023',   'rating' => 4, 'initials' => 'JH', 'text' => 'La instalación fue más sencilla de lo que esperaba. Muy profesionales.'],
+          ['name' => 'Alquímidez Méndez', 'date' => 'Mayo 5, 2023',   'rating' => 4, 'initials' => 'AM', 'text' => 'Excelente relación precio/velocidad en los planes corporativos.'],
+          ['name' => 'Marcela Soto',      'date' => 'Marzo 22, 2023', 'rating' => 5, 'initials' => 'MS', 'text' => '1Gbps real. Para trabajar desde casa es la mejor opción que he probado.'],
+          ['name' => 'Valentín Paredes',  'date' => 'Mayo 10, 2023',  'rating' => 4, 'initials' => 'VP', 'text' => 'Soporte técnico real, te atienden personas y no bots.'],
+        ];
+        foreach ($reviews as $rev):
+      ?>
+        <article class="review">
+          <div class="review__stars">
+            <?php for ($i = 1; $i <= 5; $i++): ?>
+              <i data-lucide="star" class="review__star <?= $i <= $rev['rating'] ? 'review__star--active' : 'review__star--empty' ?>" style="width:14px;height:14px;"></i>
+            <?php endfor; ?>
+          </div>
+          
+          <blockquote class="review__body">
+            <p class="review__text">"<?= $rev['text'] ?>"</p>
+          </blockquote>
+
+          <footer class="review__footer">
+            <div class="review__avatar"><?= $rev['initials'] ?></div>
+            <div class="review__meta">
+              <cite class="review__author"><?= $rev['name'] ?></cite>
+              <time class="review__date"><?= $rev['date'] ?></time>
+            </div>
+          </footer>
+        </article>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ NEWS / BLOG ═══════════════════════ -->
+<section class="news" id="noticias">
+  <div class="container">
+    <header class="news__header">
+      <h2 class="section-title">Ideas y consejos para estar siempre conectado</h2>
+      <p class="news__intro">Noticias, consejos y novedades sobre conectividad, tecnología y servicios de Internet.</p>
+    </header>
+
+    <div class="news__grid">
+      <!-- Post 1 -->
+      <article class="post-card">
+        <div class="post-card__image-wrap">
+          <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800&auto=format&fit=crop" alt="Smart home" class="post-card__image">
+          <span class="post-card__tag">Guía</span>
+        </div>
+        <div class="post-card__content">
+          <h3 class="post-card__title">Cómo elegir el plan de Internet ideal para tu hogar</h3>
+          <p class="post-card__excerpt">Comparación práctica entre planes. Descubre qué velocidad necesitas según tus dispositivos y hábitos de consumo.</p>
+          <footer class="post-card__footer">
+            <a href="#" class="post-card__link">Leer más <i data-lucide="arrow-right" style="width:14px;height:14px"></i></a>
+          </footer>
+        </div>
+      </article>
+
+      <!-- Post 2 -->
+      <article class="post-card">
+        <div class="post-card__image-wrap">
+          <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=800&auto=format&fit=crop" alt="Optic cable" class="post-card__image">
+          <span class="post-card__tag">Tecnología</span>
+        </div>
+        <div class="post-card__content">
+          <h3 class="post-card__title">Fibra óptica vs Internet tradicional: lo que debes saber</h3>
+          <p class="post-card__excerpt">Ventajas clave en estabilidad y latencia. Entiende por qué la fibra es la tecnología definitiva para el gaming y trabajo.</p>
+          <footer class="post-card__footer">
+            <a href="#" class="post-card__link">Leer más <i data-lucide="arrow-right" style="width:14px;height:14px"></i></a>
+          </footer>
+        </div>
+      </article>
+
+      <!-- Post 3 -->
+      <article class="post-card">
+        <div class="post-card__image-wrap">
+          <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=800&auto=format&fit=crop" alt="Router Wi-Fi" class="post-card__image">
+          <span class="post-card__tag">Tips</span>
+        </div>
+        <div class="post-card__content">
+          <h3 class="post-card__title">5 trucos para mejorar la señal Wi-Fi en casa</h3>
+          <p class="post-card__excerpt">Consejos sencillos sobre ubicación y configuración para eliminar las zonas muertas en tu hogar.</p>
+          <footer class="post-card__footer">
+            <a href="#" class="post-card__link">Leer más <i data-lucide="arrow-right" style="width:14px;height:14px"></i></a>
+          </footer>
+        </div>
+      </article>
+
+      <!-- Post 4 -->
+      <article class="post-card">
+        <div class="post-card__image-wrap">
+          <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=800&auto=format&fit=crop" alt="Payment" class="post-card__image">
+          <span class="post-card__tag">Soporte</span>
+        </div>
+        <div class="post-card__content">
+          <h3 class="post-card__title">Cómo reportar tu pago en línea en pocos pasos</h3>
+          <p class="post-card__excerpt">Guía rápida para usar nuestro portal de pagos. Ahorra tiempo reportando tus facturas desde cualquier lugar.</p>
+          <footer class="post-card__footer">
+            <a href="#" class="post-card__link">Leer más <i data-lucide="arrow-right" style="width:14px;height:14px"></i></a>
+          </footer>
+        </div>
+      </article>
+    </div>
+
+    <div class="news__cta">
+      <a href="#" class="btn btn-secondary">Ver todas las noticias</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ CONTACTO ═══════════════════════ -->
 <section class="contact section-pad" id="contacto">
   <div class="container">
     <div class="contact-inner">
 
-      <div class="contact-copy">
-        <div class="section-label">Contacto</div>
-        <h2>¿Ya llegamos a tu zona?</h2>
-        <p>Déjanos tus datos y te confirmamos cobertura en Acarigua-Araure y alrededores. Te contactamos en menos de 24 horas.</p>
-        <div class="contact-details">
-          <div class="contact-detail">
-            <div class="contact-detail-icon"><i data-lucide="map-pin" style="width:18px;height:18px"></i></div>
-            Acarigua-Araure, Estado Portuguesa, Venezuela
-          </div>
-          <div class="contact-detail">
-            <div class="contact-detail-icon"><i data-lucide="clock" style="width:18px;height:18px"></i></div>
-            Lunes a sábado, 8:00 am – 6:00 pm
-          </div>
-          <div class="contact-detail">
-            <div class="contact-detail-icon"><i data-lucide="message-circle" style="width:18px;height:18px"></i></div>
-            Soporte técnico 24/7
-          </div>
+      <div class="contact-visual">
+        <div class="contact-visual-brand">
+          <div class="logo-big">cidata</div>
+          <div class="tagline">internet por <em>Fibra Óptica</em></div>
         </div>
       </div>
 
       <div class="contact-form-wrap">
-        <h3>Solicitar información</h3>
-        <p>Es gratis y tarda menos de un minuto.</p>
+        <h2>Hablemos de tu conexión</h2>
+        <p class="contact-intro">¿Tienes dudas sobre planes, cobertura o soporte técnico? Completa el formulario y te respondemos a la brevedad.</p>
 
         <?php if ($status === 'ok'): ?>
-          <div class="flash success">
-            <strong>¡Listo!</strong> Recibimos tu solicitud. Te contactamos muy pronto.
-          </div>
+          <div class="flash success"><strong>¡Listo!</strong> Recibimos tu solicitud. Te contactamos muy pronto.</div>
         <?php elseif ($status === 'error'): ?>
-          <div class="flash error">
-            Hubo un problema al enviar. Por favor intenta de nuevo o contáctanos por WhatsApp.
-          </div>
+          <div class="flash error">Hubo un problema al enviar. Intenta de nuevo o escríbenos por WhatsApp.</div>
         <?php endif; ?>
 
         <form action="send-mail.php" method="post" novalidate>
-          <div class="form-group">
-            <label class="form-label" for="nombre">Nombre completo *</label>
-            <input class="form-input" type="text" id="nombre" name="nombre"
-                   placeholder="Tu nombre" required maxlength="100">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="nombre">Nombre</label>
+              <input class="form-input" type="text" id="nombre" name="nombre" required maxlength="80">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="apellido">Apellido</label>
+              <input class="form-input" type="text" id="apellido" name="apellido" maxlength="80">
+            </div>
           </div>
-          <div class="form-group">
-            <label class="form-label" for="telefono">Teléfono / WhatsApp *</label>
-            <input class="form-input" type="tel" id="telefono" name="telefono"
-                   placeholder="0414-0000000" required maxlength="20">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="email">Email</label>
+              <input class="form-input" type="email" id="email" name="email" maxlength="120">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="telefono">Teléfono</label>
+              <input class="form-input" type="tel" id="telefono" name="telefono" required maxlength="20">
+            </div>
           </div>
+
           <div class="form-group">
-            <label class="form-label" for="direccion">Dirección *</label>
-            <input class="form-input" type="text" id="direccion" name="direccion"
-                   placeholder="Sector, calle, número" required maxlength="200">
+            <label class="form-label" for="direccion">Dirección (calle, sector, ciudad)</label>
+            <input class="form-input" type="text" id="direccion" name="direccion" required maxlength="200">
           </div>
+
           <div class="form-group">
-            <label class="form-label" for="plan">Plan de interés</label>
-            <select class="form-select" id="plan" name="plan">
-              <option value="">Selecciona un plan...</option>
-              <option value="300 Mbps - Básico">300 Mbps — Básico ($25/mes)</option>
-              <option value="600 Mbps - Pro">600 Mbps — Pro ($30/mes)</option>
-              <option value="1 Gbps - Ultra">1 Gbps — Ultra ($35/mes)</option>
-              <option value="No sé, necesito orientación">No sé, necesito orientación</option>
-            </select>
+            <label class="form-label" for="mensaje">Mensaje</label>
+            <textarea class="form-textarea" id="mensaje" name="mensaje" maxlength="1000"></textarea>
           </div>
-          <div class="form-group">
-            <label class="form-label" for="mensaje">Mensaje (opcional)</label>
-            <textarea class="form-textarea" id="mensaje" name="mensaje"
-                      placeholder="¿Tienes alguna pregunta?" maxlength="1000"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:8px">
-            Enviar solicitud
-          </button>
+
+          <button type="submit" class="btn btn-primary">Enviar</button>
+
+          <p class="contact-whatsapp-note">
+            Estas dudas y quejas serán respondidas por WhatsApp a la brevedad.
+          </p>
         </form>
       </div>
 
@@ -376,156 +451,53 @@ $status = $_GET['status'] ?? '';
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     BANNER MAGENTA
-════════════════════════════════════════════ -->
-<div class="color-block pink-bg">
-  <div class="container">
-    <div class="color-block-inner">
-      <div>
-        <h2>Cámbiate a Cidata.<br>Sin vueltas.</h2>
-        <p>Nos encargamos del cambio. Tú solo disfrutas la diferencia.</p>
-      </div>
-      <a href="#planes" class="btn btn-outline-white btn-lg">Ver planes</a>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════════
-     FAQ
-════════════════════════════════════════════ -->
-<section class="faq section-pad" id="faq">
-  <div class="container">
-    <div style="text-align:center">
-      <div class="section-label">Preguntas frecuentes</div>
-      <h2 class="section-title">Sin letra chica.</h2>
-    </div>
-    <div class="faq-list">
-
-      <div class="faq-item open">
-        <button class="faq-q">
-          ¿Qué es la fibra óptica?
-          <span class="faq-icon"><i data-lucide="plus" style="width:14px;height:14px"></i></span>
-        </button>
-        <div class="faq-a">
-          La fibra óptica usa luz para transmitir datos, no cables de cobre. Eso significa más velocidad, menos interferencia y una conexión estable sin importar cuántos dispositivos estés usando al mismo tiempo.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q">
-          ¿Cuánto tarda la instalación?
-          <span class="faq-icon"><i data-lucide="plus" style="width:14px;height:14px"></i></span>
-        </button>
-        <div class="faq-a">
-          Instalamos en 24 horas hábiles desde que confirmamos tu pedido. Un técnico va a tu domicilio en Acarigua-Araure, instala el equipo y te deja todo funcionando. Sin costos adicionales.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q">
-          ¿Hay permanencia mínima?
-          <span class="faq-icon"><i data-lucide="plus" style="width:14px;height:14px"></i></span>
-        </button>
-        <div class="faq-a">
-          No. Puedes darte de baja cuando quieras, sin cargos ni multas. Creemos que si te quedas es porque estás contento, no porque firmaste algo.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q">
-          ¿Qué pasa si tengo un problema técnico?
-          <span class="faq-icon"><i data-lucide="plus" style="width:14px;height:14px"></i></span>
-        </button>
-        <div class="faq-a">
-          Tenemos soporte 24/7. Puedes llamarnos o mandarnos un mensaje. Respondemos en menos de 2 horas en horario normal y siempre que sea urgente.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q">
-          ¿La velocidad es la misma todo el día?
-          <span class="faq-icon"><i data-lucide="plus" style="width:14px;height:14px"></i></span>
-        </button>
-        <div class="faq-a">
-          Sí. Con fibra óptica GPON la velocidad no varía por horario pico ni por la cantidad de vecinos conectados. Lo que contratas es lo que recibes.
-        </div>
-      </div>
-
-    </div><!-- /.faq-list -->
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════
-     FOOTER
-════════════════════════════════════════════ -->
-<footer class="footer">
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer class="footer" id="contratos">
   <div class="container">
     <div class="footer-grid">
       <div>
         <img src="assets/img/logo-white.png" alt="Cidata" class="footer-logo">
-        <div class="footer-tagline">
-          Internet por fibra óptica para hogares y empresas en Acarigua-Araure.<br>
-          Rápido, confiable y sin vueltas.
-        </div>
+        <p class="footer-tagline">
+          Internet por fibra óptica para hogares y empresas en Portuguesa y la Región Centro Occidental. Rápido, confiable y sin vueltas.
+        </p>
       </div>
       <div>
         <div class="footer-col-title">Planes</div>
         <ul class="footer-links">
           <li><a href="#planes">300 Mbps — Básico</a></li>
-          <li><a href="#planes">600 Mbps — Pro</a></li>
+          <li><a href="#planes">600 Mbps — Medio</a></li>
           <li><a href="#planes">1 Gbps — Ultra</a></li>
         </ul>
       </div>
       <div>
         <div class="footer-col-title">Empresa</div>
         <ul class="footer-links">
-          <li><a href="#nosotros">Por qué Cidata</a></li>
-          <li><a href="#faq">Preguntas frecuentes</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#noticias">Noticias</a></li>
           <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Soporte</div>
+        <ul class="footer-links">
+          <li><a href="#contratos">Contratos y pagos</a></li>
+          <li><a href="#cobertura">Cobertura</a></li>
+          <li><a href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-copy">&copy; <?php echo date('Y'); ?> Cidata. Todos los derechos reservados.</div>
+      <div class="footer-copy">&copy; <?= date('Y') ?> Cidata. Todos los derechos reservados.</div>
       <div class="footer-social">
         <a class="social-btn" href="#" aria-label="Instagram"><i data-lucide="instagram" style="width:16px;height:16px"></i></a>
         <a class="social-btn" href="#" aria-label="Facebook"><i data-lucide="facebook" style="width:16px;height:16px"></i></a>
-        <a class="social-btn" href="#" aria-label="WhatsApp"><i data-lucide="message-circle" style="width:16px;height:16px"></i></a>
+        <a class="social-btn" href="https://wa.me/" target="_blank" rel="noopener" aria-label="WhatsApp"><i data-lucide="message-circle" style="width:16px;height:16px"></i></a>
       </div>
     </div>
   </div>
 </footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script>
-  window.addEventListener('load', function () {
-    var el = document.getElementById('network-map');
-    if (!el) return;
-
-    var map = L.map('network-map', { zoomControl: true, scrollWheelZoom: false })
-               .setView([9.5658, -69.2097], 13);
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-      maxZoom: 19
-    }).addTo(map);
-
-    var icon = L.divIcon({
-      className: '',
-      html: '<div style="width:18px;height:18px;background:#29ABE2;border:3px solid #fff;border-radius:50%;box-shadow:0 2px 8px rgba(41,171,226,.5)"></div>',
-      iconSize: [18, 18],
-      iconAnchor: [9, 9]
-    });
-
-    L.marker([9.5658, -69.2097], { icon: icon })
-     .addTo(map)
-     .bindPopup('<b style="font-family:sans-serif;color:#0D0D0D">Araure, Portuguesa</b><br><span style="font-family:sans-serif;font-size:12px;color:#29ABE2">Cidata — Fibra Óptica</span>')
-     .openPopup();
-
-    setTimeout(function () { map.invalidateSize(); }, 100);
-  });
-</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="assets/js/main.js"></script>
