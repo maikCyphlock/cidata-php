@@ -47,9 +47,9 @@ document.addEventListener('DOMContentLoaded', function () {
   tabs.forEach(function (tab) {
     tab.addEventListener('click', function () {
       if (tab.classList.contains('active')) return;
-      
+
       var target = tab.dataset.tab; // 'residenciales' or 'corporativos'
-      
+
       tabs.forEach(function (t) { t.classList.remove('active'); });
       tab.classList.add('active');
 
@@ -57,22 +57,22 @@ document.addEventListener('DOMContentLoaded', function () {
         var hide = target === 'residenciales' ? corpGrid : resGrid;
         var show = target === 'residenciales' ? resGrid : corpGrid;
 
-        gsap.to(hide, { 
-          autoAlpha: 0, 
-          y: 20, 
-          duration: 0.3, 
-          onComplete: function() {
+        gsap.to(hide, {
+          autoAlpha: 0,
+          y: 20,
+          duration: 0.3,
+          onComplete: function () {
             hide.style.display = 'none';
             show.style.display = 'grid';
-            gsap.fromTo(show, 
-              { autoAlpha: 0, y: 20 }, 
+            gsap.fromTo(show,
+              { autoAlpha: 0, y: 20 },
               { autoAlpha: 1, y: 0, duration: 0.4, clearProps: 'all' }
             );
-          } 
+          }
         });
       } else {
-        resGrid.style.display  = (target === 'residenciales') ? 'grid' : 'none';
-        corpGrid.style.display = (target === 'corporativos')  ? 'grid' : 'none';
+        resGrid.style.display = (target === 'residenciales') ? 'grid' : 'none';
+        corpGrid.style.display = (target === 'corporativos') ? 'grid' : 'none';
       }
     });
   });
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var mapEl = document.getElementById('coverage-map');
     if (mapEl) {
       var map = L.map('coverage-map', { zoomControl: true, scrollWheelZoom: false })
-                 .setView([9.5658, -69.2097], 13);
+        .setView([9.5658, -69.2097], 13);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap',
         maxZoom: 19
@@ -123,20 +123,20 @@ document.addEventListener('DOMContentLoaded', function () {
   gsap.registerPlugin(ScrollTrigger);
 
   // Hero entrada
-  gsap.set('.hero-eyebrow',   { y: 30, autoAlpha: 0 });
-  gsap.set('.hero-headline',  { y: 50, autoAlpha: 0 });
-  gsap.set('.hero-sub',       { y: 30, autoAlpha: 0 });
-  gsap.set('.hero-actions',   { y: 25, autoAlpha: 0 });
-  gsap.set('.hero-visual',    { x: 60, autoAlpha: 0 });
-  gsap.set('.hero-popup',     { y: 20, autoAlpha: 0 });
+  gsap.set('.hero-eyebrow', { y: 30, autoAlpha: 0 });
+  gsap.set('.hero-headline', { y: 50, autoAlpha: 0 });
+  gsap.set('.hero-sub', { y: 30, autoAlpha: 0 });
+  gsap.set('.hero-actions', { y: 25, autoAlpha: 0 });
+  gsap.set('.hero-visual', { x: 60, autoAlpha: 0 });
+  gsap.set('.hero-popup', { y: 20, autoAlpha: 0 });
 
   gsap.timeline({ defaults: { ease: 'power3.out' } })
-    .to('.hero-eyebrow',  { y: 0, autoAlpha: 1, duration: 0.55 })
+    .to('.hero-eyebrow', { y: 0, autoAlpha: 1, duration: 0.55 })
     .to('.hero-headline', { y: 0, autoAlpha: 1, duration: 0.75 }, '-=0.3')
-    .to('.hero-sub',      { y: 0, autoAlpha: 1, duration: 0.55 }, '-=0.45')
-    .to('.hero-actions',  { y: 0, autoAlpha: 1, duration: 0.45 }, '-=0.3')
-    .to('.hero-visual',   { x: 0, autoAlpha: 1, duration: 0.9, ease: 'power2.out' }, '-=0.75')
-    .to('.hero-popup',    { y: 0, autoAlpha: 1, duration: 0.55, ease: 'back.out(1.6)' }, '-=0.2');
+    .to('.hero-sub', { y: 0, autoAlpha: 1, duration: 0.55 }, '-=0.45')
+    .to('.hero-actions', { y: 0, autoAlpha: 1, duration: 0.45 }, '-=0.3')
+    .to('.hero-visual', { x: 0, autoAlpha: 1, duration: 0.9, ease: 'power2.out' }, '-=0.75')
+    .to('.hero-popup', { y: 0, autoAlpha: 1, duration: 0.55, ease: 'back.out(1.6)' }, '-=0.2');
 
   function reveal(sel, vars) {
     gsap.utils.toArray(sel).forEach(function (el) {
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   reveal('.section-title', { y: 30, duration: 0.65 });
-  reveal('.plans-tabs',    { y: 20, duration: 0.55 });
+  reveal('.plans-tabs', { y: 20, duration: 0.55 });
 
   gsap.from('.c-card--horizontal', {
     y: 40, autoAlpha: 0, duration: 0.6, stagger: 0.1, ease: 'power3.out',
@@ -180,11 +180,6 @@ document.addEventListener('DOMContentLoaded', function () {
     scrollTrigger: { trigger: '.about-stats', start: 'top 85%' }
   });
 
-  gsap.from('.review', {
-    y: 40, autoAlpha: 0, duration: 0.6, stagger: 0.09, ease: 'power3.out',
-    scrollTrigger: { trigger: '.reviews__grid', start: 'top 85%' },
-    clearProps: 'transform'
-  });
 
   gsap.from('.post-card', {
     y: 50, autoAlpha: 0, duration: 0.7, stagger: 0.12, ease: 'power3.out',

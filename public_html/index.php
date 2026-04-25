@@ -149,7 +149,50 @@ $status = $_GET['status'] ?? '';
       </div>
     </div>
   </section>
+  <!-- ═══════════════════════ ABOUT / STATS ═══════════════════════ -->
+  <section class="about section-pad" id="nosotros">
+    <div class="container">
+      <div class="about-inner">
+        <div>
+          <h2 class="about-title">10 años construyendo<br>confianza y velocidad</h2>
+          <p class="about-desc">
+            En CIDATA conectamos a las personas con sus deseos y necesidades a través de Internet
+            de fibra óptica. Rompemos los límites de la distancia con un servicio accesible, rápido y
+            seguro, diseñado para hogares y empresas.
+          </p>
+          <div class="about-cta-row">
+            <a href="#contacto" class="btn btn-primary">Conócenos</a>
+            <div class="about-tags">
+              <span class="about-tag">Fibra óptica</span>
+              <span class="about-tag plus">+</span>
+              <span class="about-tag">Conexión</span>
+              <span class="about-tag plus">+</span>
+              <span class="about-tag">Confianza</span>
+            </div>
+          </div>
+        </div>
 
+        <div class="about-stats">
+          <div class="stat">
+            <div class="stat-value">+10 <span class="unit">años</span></div>
+            <div class="stat-desc">de experiencia en telecomunicaciones.</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">1 <span class="unit">Gbps</span></div>
+            <div class="stat-desc">Velocidades de hasta 1Gbps en planes residenciales.</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value"><i data-lucide="signal" style="width:30px;height:30px;color:#a6e6ff"></i></div>
+            <div class="stat-desc">Cobertura en la Región Centro Occidental y Los Llanos.</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value"><i data-lucide="life-buoy" style="width:30px;height:30px;color:#ffb1c3"></i></div>
+            <div class="stat-desc">Soporte técnico confiable con atención personalizada.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <!-- ═══════════════════════ PLANES ═══════════════════════ -->
   <section class="plans section-pad" id="planes">
     <div class="container">
@@ -313,8 +356,8 @@ $status = $_GET['status'] ?? '';
           <span class="promo-eyebrow">Oferta Limitada</span>
           <h2 class="promo-title">Tu mundo, tu conexión, tu internet <span class="hl-grad">RÁPIDO</span></h2>
           <p class="promo-text">
-            No te conformes con menos. Vive la experiencia de navegación definitiva con 
-            <strong>Cidata Fibra Óptica</strong>. Velocidad simétrica, latencia mínima y el mejor 
+            No te conformes con menos. Vive la experiencia de navegación definitiva con
+            <strong>Cidata Fibra Óptica</strong>. Velocidad simétrica, latencia mínima y el mejor
             respaldo técnico de la región.
           </p>
           <div class="promo-actions">
@@ -359,50 +402,7 @@ $status = $_GET['status'] ?? '';
     </div>
   </section>
 
-  <!-- ═══════════════════════ ABOUT / STATS ═══════════════════════ -->
-  <section class="about section-pad" id="nosotros">
-    <div class="container">
-      <div class="about-inner">
-        <div>
-          <h2 class="about-title">10 años construyendo<br>confianza y velocidad</h2>
-          <p class="about-desc">
-            En CIDATA conectamos a las personas con sus deseos y necesidades a través de Internet
-            de fibra óptica. Rompemos los límites de la distancia con un servicio accesible, rápido y
-            seguro, diseñado para hogares y empresas.
-          </p>
-          <div class="about-cta-row">
-            <a href="#contacto" class="btn btn-primary">Conócenos</a>
-            <div class="about-tags">
-              <span class="about-tag">Fibra óptica</span>
-              <span class="about-tag plus">+</span>
-              <span class="about-tag">Conexión</span>
-              <span class="about-tag plus">+</span>
-              <span class="about-tag">Confianza</span>
-            </div>
-          </div>
-        </div>
 
-        <div class="about-stats">
-          <div class="stat">
-            <div class="stat-value">+10 <span class="unit">años</span></div>
-            <div class="stat-desc">de experiencia en telecomunicaciones.</div>
-          </div>
-          <div class="stat">
-            <div class="stat-value">1 <span class="unit">Gbps</span></div>
-            <div class="stat-desc">Velocidades de hasta 1Gbps en planes residenciales.</div>
-          </div>
-          <div class="stat">
-            <div class="stat-value"><i data-lucide="signal" style="width:30px;height:30px;color:#a6e6ff"></i></div>
-            <div class="stat-desc">Cobertura en la Región Centro Occidental y Los Llanos.</div>
-          </div>
-          <div class="stat">
-            <div class="stat-value"><i data-lucide="life-buoy" style="width:30px;height:30px;color:#ffb1c3"></i></div>
-            <div class="stat-desc">Soporte técnico confiable con atención personalizada.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ═══════════════════════ REVIEWS ═══════════════════════ -->
   <section class="reviews" id="testimonios">
@@ -413,39 +413,60 @@ $status = $_GET['status'] ?? '';
           enorgullece más que la satisfacción de nuestros clientes.</p>
       </header>
 
-      <div class="reviews__grid">
-        <?php
-        $reviews = [
-          ['name' => 'Carlos Rivas', 'date' => 'Abril 10, 2023', 'rating' => 5, 'initials' => 'CR', 'text' => 'Desde que cambié a CIDATA, mi conexión es estable y rápida. El soporte siempre responde a tiempo.'],
-          ['name' => 'Joaquín Herrera', 'date' => 'Mayo 5, 2023', 'rating' => 4, 'initials' => 'JH', 'text' => 'La instalación fue más sencilla de lo que esperaba. Muy profesionales.'],
-          ['name' => 'Alquímidez Méndez', 'date' => 'Mayo 5, 2023', 'rating' => 4, 'initials' => 'AM', 'text' => 'Excelente relación precio/velocidad en los planes corporativos.'],
-          ['name' => 'Marcela Soto', 'date' => 'Marzo 22, 2023', 'rating' => 5, 'initials' => 'MS', 'text' => '1Gbps real. Para trabajar desde casa es la mejor opción que he probado.'],
-          ['name' => 'Valentín Paredes', 'date' => 'Mayo 10, 2023', 'rating' => 4, 'initials' => 'VP', 'text' => 'Soporte técnico real, te atienden personas y no bots.'],
-        ];
-        foreach ($reviews as $rev):
-          ?>
-          <article class="review">
-            <div class="review__stars">
-              <?php for ($i = 1; $i <= 5; $i++): ?>
-                <i data-lucide="star"
-                  class="review__star <?= $i <= $rev['rating'] ? 'review__star--active' : 'review__star--empty' ?>"
-                  style="width:14px;height:14px;"></i>
-              <?php endfor; ?>
-            </div>
-
-            <blockquote class="review__body">
-              <p class="review__text">"<?= $rev['text'] ?>"</p>
-            </blockquote>
-
-            <footer class="review__footer">
-              <div class="review__avatar"><?= $rev['initials'] ?></div>
-              <div class="review__meta">
-                <cite class="review__author"><?= $rev['name'] ?></cite>
-                <time class="review__date"><?= $rev['date'] ?></time>
+      <?php
+      $reviews = [
+        ['name' => 'Carlos Rivas', 'date' => 'Abril 10, 2023', 'rating' => 5, 'initials' => 'CR', 'text' => 'Desde que cambié a CIDATA, mi conexión es estable y rápida. El soporte siempre responde a tiempo.'],
+        ['name' => 'Joaquín Herrera', 'date' => 'Mayo 5, 2023', 'rating' => 4, 'initials' => 'JH', 'text' => 'La instalación fue más sencilla de lo que esperaba. Muy profesionales.'],
+        ['name' => 'Alquímidez Méndez', 'date' => 'Mayo 5, 2023', 'rating' => 4, 'initials' => 'AM', 'text' => 'Excelente relación precio/velocidad en los planes corporativos.'],
+        ['name' => 'Marcela Soto', 'date' => 'Marzo 22, 2023', 'rating' => 5, 'initials' => 'MS', 'text' => '1Gbps real. Para trabajar desde casa es la mejor opción que he probado.'],
+        ['name' => 'Valentín Paredes', 'date' => 'Mayo 10, 2023', 'rating' => 4, 'initials' => 'VP', 'text' => 'Soporte técnico real, te atienden personas y no bots.'],
+      ];
+      ?>
+      <div class="reviews__marquee" aria-label="Opiniones de clientes">
+        <div class="reviews__track">
+          <?php foreach ($reviews as $rev): ?>
+            <article class="review">
+              <div class="review__stars">
+                <?php for ($i = 1; $i <= 5; $i++): ?>
+                  <i data-lucide="star"
+                    class="review__star <?= $i <= $rev['rating'] ? 'review__star--active' : 'review__star--empty' ?>"
+                    style="width:14px;height:14px;"></i>
+                <?php endfor; ?>
               </div>
-            </footer>
-          </article>
-        <?php endforeach; ?>
+              <blockquote class="review__body">
+                <p class="review__text">"<?= $rev['text'] ?>"</p>
+              </blockquote>
+              <footer class="review__footer">
+                <div class="review__avatar"><?= $rev['initials'] ?></div>
+                <div class="review__meta">
+                  <cite class="review__author"><?= $rev['name'] ?></cite>
+                  <time class="review__date"><?= $rev['date'] ?></time>
+                </div>
+              </footer>
+            </article>
+          <?php endforeach; ?>
+          <?php foreach ($reviews as $rev): ?>
+            <article class="review" aria-hidden="true">
+              <div class="review__stars">
+                <?php for ($i = 1; $i <= 5; $i++): ?>
+                  <i data-lucide="star"
+                    class="review__star <?= $i <= $rev['rating'] ? 'review__star--active' : 'review__star--empty' ?>"
+                    style="width:14px;height:14px;"></i>
+                <?php endfor; ?>
+              </div>
+              <blockquote class="review__body">
+                <p class="review__text">"<?= $rev['text'] ?>"</p>
+              </blockquote>
+              <footer class="review__footer">
+                <div class="review__avatar"><?= $rev['initials'] ?></div>
+                <div class="review__meta">
+                  <cite class="review__author"><?= $rev['name'] ?></cite>
+                  <time class="review__date"><?= $rev['date'] ?></time>
+                </div>
+              </footer>
+            </article>
+          <?php endforeach; ?>
+        </div>
       </div>
     </div>
   </section>
