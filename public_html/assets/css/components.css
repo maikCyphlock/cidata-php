@@ -4,12 +4,12 @@
     --radius-nav: 30px;
 
     /* Card Tokens */
-    --card-bg: #faf7f7;
+    --card-bg: #f5f5fa;
     --card-text: #111827;
     --card-text-muted: #6b7280;
-    --card-border: #e9e9e9;
-    --card-radius: 28px;
-    --card-shadow: inset 0 1px 2px #cfcfcf, 0 10px 30px rgba(0, 0, 0, 0.2);
+    --card-radius: 20px;
+    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.05), 0 4px 5px rgba(0, 0, 0, 0.08);
+    --card-glow: 0 4px 24px rgba(219, 39, 119, 0.18), 0 16px 40px rgba(0, 0, 0, 0.1);
 
     /* Card Items */
     --item-bg: #f3f4f6;
@@ -21,8 +21,8 @@
     --card-bg: #121217;
     --card-text: #ffffff;
     --card-text-muted: #9ca3af;
-    --card-border: #1f1f27;
-    --card-shadow: inset 0 1.5px 0.5px rgba(255, 255, 255, 0.15), 0 20px 40px rgba(0, 0, 0, 0.4);
+    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.4);
+    --card-glow: 0 4px 24px rgba(219, 39, 119, 0.25), 0 16px 40px rgba(0, 0, 0, 0.5);
 
     --item-bg: #1c1c21;
     --item-border: rgba(255, 255, 255, 0.08);
@@ -125,17 +125,26 @@ nav {
 /* ── GENERIC CARD ── */
 .c-card {
     background-color: var(--card-bg);
-    border: 3px solid var(--card-border);
     color: var(--card-text);
     border-radius: var(--card-radius);
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.c-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--card-glow);
 }
 
 .c-card--featured {
-    border-color: var(--accent);
+    box-shadow: var(--card-glow);
+}
+
+.c-card--featured:hover {
+    transform: translateY(-10px);
 }
 
 .c-card--horizontal {
@@ -226,15 +235,20 @@ nav {
     background-color: var(--accent);
     color: #ffffff;
     font-size: 0.938rem;
-    font-weight: 700;
+    font-weight: 600;
     padding: 0.875rem;
     border-radius: 12px;
     border: none;
     text-decoration: none;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(var(--accent-rgb), 0.2);
+    box-shadow: 0 0 0 4px rgba(var(--accent-rgb), 0.1), 0 2px 12px rgba(var(--accent-rgb), 0.35);
+    transition: filter 0.2s ease, transform 0.15s ease;
 }
 
 .c-button:hover {
-    filter: brightness(1.1);
+    filter: brightness(1.12);
+}
+
+.c-button:active {
+    transform: scale(0.95);
 }
