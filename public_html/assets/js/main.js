@@ -121,13 +121,13 @@ document.addEventListener('DOMContentLoaded', function () {
   reveal('.section-title', { y: 30, duration: 0.65 });
   reveal('.plans-tabs',    { y: 20, duration: 0.55 });
 
-  gsap.from('.advantages__card', {
+  gsap.from('.c-card--horizontal', {
     y: 40, autoAlpha: 0, duration: 0.6, stagger: 0.1, ease: 'power3.out',
     scrollTrigger: { trigger: '.advantages__grid', start: 'top 85%' },
     clearProps: 'transform'
   });
 
-  gsap.from('.plan-card', {
+  gsap.from('.plans .c-card', {
     y: 60, autoAlpha: 0, duration: 0.75, stagger: 0.15, ease: 'power3.out',
     scrollTrigger: { trigger: '.plans-grid', start: 'top 82%' },
     clearProps: 'transform'
