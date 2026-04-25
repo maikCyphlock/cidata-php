@@ -16,7 +16,7 @@ $status = $_GET['status'] ?? '';
   <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Nunito+Sans:wght@400;600;700&display=swap"
     as="style">
-  <link rel="preload" href="assets/img/woman.jpeg" as="image" fetchpriority="high">
+  <link rel="preload" href="assets/img/woman.png" as="image" fetchpriority="high">
 
   <!-- Styles -->
   <link rel="stylesheet"
@@ -77,7 +77,7 @@ $status = $_GET['status'] ?? '';
 
         <div class="hero-visual">
           <div class="hero-visual-frame">
-            <img src="assets/img/woman.jpeg" alt="Cidata fibra óptica" width="826" height="1024" fetchpriority="high">
+            <img src="assets/img/woman.png" alt="Cidata fibra óptica" width="826" height="1024" fetchpriority="high">
           </div>
 
           <div class="hero-popup" id="hero-popup">
@@ -185,7 +185,8 @@ $status = $_GET['status'] ?? '';
               <p class="c-card__subtitle">Medio</p>
             </header>
             <div class="c-card__body">
-              <p class="c-card__description">Ideal para familias numerosas, gaming competitivo y múltiples dispositivos.</p>
+              <p class="c-card__description">Ideal para familias numerosas, gaming competitivo y múltiples dispositivos.
+              </p>
               <div class="c-card__price"><sup>$</sup>30<span class="c-card__period">/mes</span></div>
               <ul class="c-card__list">
                 <li><i data-lucide="check"></i>Streaming en varios equipos</li>
