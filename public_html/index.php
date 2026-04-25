@@ -229,6 +229,7 @@ $status = $_GET['status'] ?? '';
           <!-- Medio -->
           <article class="c-card c-card--featured">
             <header class="c-card__header">
+              <span class="c-card__badge">&#9733; Más popular</span>
               <h2 class="c-card__title">750 Mbps</h2>
               <p class="c-card__subtitle">Medio</p>
             </header>

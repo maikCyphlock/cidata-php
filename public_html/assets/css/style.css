@@ -31,7 +31,7 @@
     --on-surface-light: oklch(20% 0.05 260);
     --on-surface-light-muted: oklch(50% 0.05 260);
     --surface-container-light: oklch(100% 0 0);
-    --outline-light: oklch(0.21 0.02 284.28);
+    --outline-light: oklch(0.92 0.02 285.7);
 
     /* Text */
     --on-surface: oklch(90% 0.02 260);
@@ -532,7 +532,12 @@
     background-color: oklch(98% 0.01 240);
     border: 1px solid var(--advantages-card-border);
     color: var(--primary-container);
-    transition: transform 300ms var(--ease-out);
+    transition: transform 300ms var(--ease-out), box-shadow 300ms var(--ease-out);
+  }
+
+  .advantages .c-card--horizontal:hover .advantages__icon {
+    transform: scale(1.12) rotate(4deg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
   .advantages__card--pink .advantages__icon {
