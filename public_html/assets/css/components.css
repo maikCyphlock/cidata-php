@@ -1,0 +1,240 @@
+:root {
+    --accent: #db2777;
+    --accent-rgb: 219, 39, 119;
+    --radius-nav: 30px;
+
+    /* Card Tokens */
+    --card-bg: #faf7f7;
+    --card-text: #111827;
+    --card-text-muted: #6b7280;
+    --card-border: #e9e9e9;
+    --card-radius: 28px;
+    --card-shadow: inset 0 1px 2px #cfcfcf, 0 10px 30px rgba(0, 0, 0, 0.2);
+
+    /* Card Items */
+    --item-bg: #f3f4f6;
+    --item-border: #e5e7eb;
+    --item-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.8);
+}
+
+.dark {
+    --card-bg: #121217;
+    --card-text: #ffffff;
+    --card-text-muted: #9ca3af;
+    --card-border: #1f1f27;
+    --card-shadow: inset 0 1.5px 0.5px rgba(255, 255, 255, 0.15), 0 20px 40px rgba(0, 0, 0, 0.4);
+
+    --item-bg: #1c1c21;
+    --item-border: rgba(255, 255, 255, 0.08);
+    --item-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.03);
+}
+
+/* ── NAV WRAPPER ── */
+.nav-wrapper {
+    position: fixed;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    padding: 1px;
+    border-radius: var(--radius-nav);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.04) 50%, transparent 100%);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 8px 32px rgba(0, 0, 0, 0.55);
+}
+
+nav {
+    background: linear-gradient(180deg, #1c1c28 0%, #141420 100%);
+    border-radius: var(--radius-nav);
+    padding: 10px 14px 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 880px;
+    max-width: 95vw;
+    gap: 32px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+.nav-logo img {
+    height: 50px;
+    width: 100px;
+    object-fit: cover;
+    display: block;
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #9090a0;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+/* CTA BUTTON */
+.btn-primary {
+    background: var(--accent);
+    color: #fff;
+    font-weight: 500;
+    border: none;
+    border-radius: 12px;
+    padding: 9px 24px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.2s, box-shadow 0.2s;
+    box-shadow:
+        0 0 0 4px rgba(var(--accent-rgb), 0.15),
+        0 2px 12px rgba(var(--accent-rgb), 0.4);
+}
+
+.btn-primary:hover {
+    filter: brightness(1.1);
+}
+
+.btn-primary:active {
+    scale: 0.9;
+
+}
+
+@media (max-width: 950px) {
+    .nav-links {
+        display: none;
+    }
+
+    nav {
+        width: auto;
+        gap: 16px;
+    }
+
+    .nav-wrapper {
+        top: 12px;
+    }
+}
+
+/* ── GENERIC CARD ── */
+.c-card {
+    background-color: var(--card-bg);
+    border: 3px solid var(--card-border);
+    color: var(--card-text);
+    border-radius: var(--card-radius);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.c-card--featured {
+    border-color: var(--accent);
+}
+
+.c-card--horizontal {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.25rem;
+}
+
+.c-card--horizontal .c-card__header {
+    margin-bottom: 0;
+}
+
+.c-card__header {
+    margin-bottom: 1.25rem;
+}
+
+.c-card__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.c-card__subtitle {
+    color: var(--card-text-muted);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+}
+
+.c-card__body {
+    flex: 1;
+}
+
+.c-card__description {
+    color: var(--card-text-muted);
+    font-size: 0.938rem;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+}
+
+.c-card__price {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 1.5rem 0;
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+}
+
+.c-card__price sup {
+    font-size: 1.25rem;
+}
+
+.c-card__period {
+    font-size: 1rem;
+    color: var(--card-text-muted);
+    font-weight: 400;
+}
+
+.c-card__list {
+    list-style: none;
+    margin: 1.5rem 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.c-card__list li {
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.c-card__list i {
+    color: var(--accent);
+    width: 18px;
+    height: 18px;
+}
+
+.c-button {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    background-color: var(--accent);
+    color: #ffffff;
+    font-size: 0.938rem;
+    font-weight: 700;
+    padding: 0.875rem;
+    border-radius: 12px;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(var(--accent-rgb), 0.2);
+}
+
+.c-button:hover {
+    filter: brightness(1.1);
+}

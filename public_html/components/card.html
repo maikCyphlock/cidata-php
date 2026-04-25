@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generic UI Card Component</title>
+    <style>
+        /* ── RESET & BASE ── */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── DESIGN TOKENS ── */
+        :root {
+            /* Application Backgrounds */
+            --bg-page: #121217;
+            --text-page: #ffffff;
+
+            /* Controls */
+            --ctrl-bg: #1f1f23;
+            --ctrl-bg-hover: #2d2d33;
+
+            /* Card Identity */
+            --card-bg: #ececec;
+            --card-text: #111827;
+            --card-text-muted: #6b7280;
+            --card-border: #ffffff;
+            --card-radius: 28px;
+            --card-shadow: inset 0 1px 2px #cfcfcf, 0 10px 30px rgba(0, 0, 0, 0.2);
+
+            /* Brand / Accent */
+            --accent: #db2777;
+            --accent-rgb: 219, 39, 119;
+
+            /* Sub-elements */
+            --item-bg: #f3f4f6;
+            --item-border: #e5e7eb;
+            --item-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.8);
+
+            /* Button */
+            --btn-bg: var(--accent);
+            --btn-hover: #be185d;
+            --btn-text: #ffffff;
+            --btn-radius: 16px;
+            --btn-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.3), 0 4px 10px rgba(var(--accent-rgb), 0.2);
+        }
+
+        /* ── DARK THEME OVERRIDES ── */
+        .dark {
+            --bg-page: #0a0a0c;
+            --text-page: #f9fafb;
+
+            --card-bg: #121217;
+            --card-text: #ffffff;
+            --card-text-muted: #9ca3af;
+            --card-border: #1f1f27;
+            --card-shadow: inset 0 1.5px 0.5px rgba(255, 255, 255, 0.15), 0 20px 40px rgba(0, 0, 0, 0.4);
+
+            --accent: #f472b6;
+
+            --item-bg: #1c1c21;
+            --item-border: rgba(255, 255, 255, 0.08);
+            --item-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.03);
+
+
+            --btn-hover: #db2777;
+            --btn-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.3), 0 8px 16px rgba(var(--accent-rgb), 0.2);
+        }
+
+        /* ── LAYOUT CONTAINER ── */
+        .l-page {
+            min-height: 100vh;
+            background-color: var(--bg-page);
+            color: var(--text-page);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ── THEME TOGGLE ── */
+        .c-toggle {
+            margin-bottom: 2.5rem;
+            padding: 0.625rem 1.25rem;
+            background-color: var(--ctrl-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            font-size: 0.813rem;
+            font-weight: 600;
+            color: var(--text-page);
+            cursor: pointer;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
+        }
+
+        .c-toggle:hover {
+            background-color: var(--ctrl-bg-hover);
+
+        }
+
+        /* ── GENERIC CARD (COMPONENT) ── */
+        .c-card {
+            background-color: var(--card-bg);
+            border: 3px solid var(--card-border);
+            color: var(--card-text);
+            border-radius: var(--card-radius);
+            padding: 1.5rem;
+            width: 100%;
+            max-width: 360px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+        }
+
+        .c-card:hover {
+            box-shadow: var(--card-shadow), 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Card Elements */
+        .c-card__icon {
+            color: var(--accent);
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        .c-card__title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .c-card__subtitle {
+            color: var(--card-text-muted);
+            font-size: 0.875rem;
+            margin-top: 0.375rem;
+            line-height: 1.4;
+        }
+
+        /* List Component within Card */
+        .c-list {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.75rem;
+            list-style: none;
+        }
+
+        .c-list__item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .c-avatar {
+            width: 3.25rem;
+            height: 3.25rem;
+            border-radius: 50%;
+            background-color: var(--item-bg);
+            border: 1px solid var(--item-border);
+            box-shadow: var(--item-shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .c-list__item:hover .c-avatar {
+            transform: scale(1.1) rotate(3deg);
+            border-color: var(--accent);
+        }
+
+        .c-avatar img {
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+            transform: translateY(10%);
+        }
+
+        .c-list__label {
+            color: var(--card-text-muted);
+            font-size: 0.813rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .c-list__item:hover .c-list__label {
+            color: var(--accent);
+        }
+
+        /* Generic Button Component */
+        .c-button {
+            width: 100%;
+            margin-top: 1.75rem;
+            background-color: var(--btn-bg);
+            color: var(--btn-text);
+            font-size: 0.938rem;
+            font-weight: 700;
+            padding: 0.875rem;
+            border-radius: var(--btn-radius);
+            border: none;
+            box-shadow: var(--btn-shadow);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .c-button:hover {
+            background-color: var(--btn-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--btn-shadow), 0 8px 20px rgba(var(--accent-rgb), 0.3);
+        }
+
+        .c-button:active {
+            transform: scale(0.97);
+        }
+    </style>
+</head>
+
+<body class="dark" id="theme-root">
+    <main class="l-page">
+
+        <!-- UI Control: Theme Toggle -->
+        <button id="theme-toggle" class="c-toggle" aria-label="Toggle visual mode">
+            Switch Perspective
+        </button>
+
+        <!-- Generic Card Component -->
+        <article class="c-card">
+
+            <!-- Card Header: Title & Meta -->
+            <header class="c-card__header">
+                <div class="c-card__icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                    </svg>
+                </div>
+                <h2 class="c-card__title">Generic Card Title</h2>
+                <p class="c-card__subtitle">Descriptive text providing context for the card component.</p>
+            </header>
+
+            <!-- Card Body: Content List -->
+            <div class="c-card__body">
+                <ul class="c-list">
+                    <li class="c-list__item">
+                        <div class="c-avatar">
+                            <img src="https://api.dicebear.com/7.x/micah/svg?seed=Felix&backgroundColor=transparent"
+                                alt="User Avatar" />
+                        </div>
+                        <span class="c-list__label">Label 1</span>
+                    </li>
+                    <li class="c-list__item">
+                        <div class="c-avatar">
+                            <img src="https://api.dicebear.com/7.x/micah/svg?seed=Aneka&backgroundColor=transparent"
+                                alt="User Avatar" />
+                        </div>
+                        <span class="c-list__label">Label 2</span>
+                    </li>
+                    <li class="c-list__item">
+                        <div class="c-avatar">
+                            <img src="https://api.dicebear.com/7.x/micah/svg?seed=Maikol&backgroundColor=transparent"
+                                alt="User Avatar" />
+                        </div>
+                        <span class="c-list__label">Label 3</span>
+                    </li>
+                    <li class="c-list__item">
+                        <div class="c-avatar">
+                            <img src="https://api.dicebear.com/7.x/micah/svg?seed=Buster&backgroundColor=transparent"
+                                alt="User Avatar" />
+                        </div>
+                        <span class="c-list__label">Label 4</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Card Actions -->
+            <footer class="c-card__footer">
+                <button class="c-button">Primary Action</button>
+            </footer>
+
+        </article>
+    </main>
+
+    <script>
+        const themeRoot = document.getElementById('theme-root');
+        const toggleBtn = document.getElementById('theme-toggle');
+
+        toggleBtn.addEventListener('click', () => {
+            themeRoot.classList.toggle('dark');
+        });
+    </script>
+</body>
+
+</html>

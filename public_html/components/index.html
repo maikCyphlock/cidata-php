@@ -1,0 +1,128 @@
+<style>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        --accent: #db2777;
+        --accent-rgb: 219, 39, 119;
+    }
+
+    body {
+        background: #0f0f17;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: 'DM Sans', sans-serif;
+        gap: 48px;
+    }
+
+    /* ── WRAPPER: borde reflectivo con gradiente ── */
+    .nav-wrapper {
+        padding: 1px;
+        border-radius: 999px;
+        background: linear-gradient(180deg,
+                rgba(255, 255, 255, 0.18) 0%,
+                rgba(255, 255, 255, 0.04) 50%,
+                rgba(255, 255, 255, 0.00) 100%);
+        box-shadow:
+            0 0 0 1px rgba(0, 0, 0, 0.6),
+            0 8px 32px rgba(0, 0, 0, 0.55),
+            0 2px 8px rgba(0, 0, 0, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    nav {
+        background: linear-gradient(180deg, #1c1c28 0%, #141420 100%);
+        border-radius: 999px;
+        padding: 10px 14px 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 780px;
+        max-width: 95vw;
+        gap: 16px;
+        box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.07),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-brand {
+        font-size: 13px;
+        font-weight: 500;
+        color: #e2e2e2;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        white-space: nowrap;
+    }
+
+    .nav-brand .reg {
+        font-size: 9px;
+        vertical-align: super;
+        opacity: 0.6;
+    }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        list-style: none;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #9090a0;
+        font-size: 14px;
+        font-weight: 400;
+        transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+        color: #ffffff;
+    }
+
+    /* BUTTON */
+
+    .btn-primary {
+        background: var(--accent, #2563eb);
+        color: #ffffff;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        border: none;
+
+        border-radius: 12px;
+        padding: 9px 20px;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: filter 0.2s ease, box-shadow 0.2s ease;
+        box-shadow:
+            0 0 0 4px rgba(var(--accent-rgb, 219, 39, 119), 0.18),
+            0 2px 12px rgba(var(--accent-rgb, 219, 39, 119), 0.45),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-primary:hover {
+        filter: brightness(1.15);
+    }
+</style>
+
+
+<div class="nav-wrapper">
+    <nav>
+        <span class="nav-brand">SYNTASK <span class="reg">®</span></span>
+        <ul class="nav-links">
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Resources</a></li>
+            <li><a href="#">Pricing</a></li>
+        </ul>
+        <button class="btn-primary" id="ctaBtn">Sign Up Now</button>
+    </nav>
+</div>

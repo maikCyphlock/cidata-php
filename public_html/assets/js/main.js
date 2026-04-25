@@ -3,27 +3,6 @@ document.addEventListener('DOMContentLoaded', function () {
   // ── Lucide icons ──
   if (typeof lucide !== 'undefined') lucide.createIcons();
 
-  // ── Mobile nav toggle ──
-  var navToggle = document.getElementById('nav-toggle');
-  var navLinks  = document.getElementById('nav-links');
-  if (navToggle && navLinks) {
-    navToggle.addEventListener('click', function () {
-      navLinks.classList.toggle('open');
-    });
-    navLinks.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', function () { navLinks.classList.remove('open'); });
-    });
-  }
-
-  // ── Scroll compact nav ──
-  var nav = document.querySelector('.nav');
-  function updateNav() {
-    if (!nav) return;
-    nav.classList.toggle('scrolled', window.scrollY > 30);
-  }
-  window.addEventListener('scroll', updateNav, { passive: true });
-  updateNav();
-
   // ── Hero popup close ──
   var popup = document.getElementById('hero-popup');
   var popupClose = document.getElementById('popup-close');
@@ -33,10 +12,39 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // ── Plans tabs ──
   var tabs = document.querySelectorAll('.plans-tab');
+  var resGrid = document.getElementById('residenciales-grid');
+  var corpGrid = document.getElementById('corporativos-grid');
+
   tabs.forEach(function (tab) {
     tab.addEventListener('click', function () {
+      if (tab.classList.contains('active')) return;
+      
+      var target = tab.dataset.tab; // 'residenciales' or 'corporativos'
+      
       tabs.forEach(function (t) { t.classList.remove('active'); });
       tab.classList.add('active');
+
+      if (typeof gsap !== 'undefined') {
+        var hide = target === 'residenciales' ? corpGrid : resGrid;
+        var show = target === 'residenciales' ? resGrid : corpGrid;
+
+        gsap.to(hide, { 
+          autoAlpha: 0, 
+          y: 20, 
+          duration: 0.3, 
+          onComplete: function() {
+            hide.style.display = 'none';
+            show.style.display = 'grid';
+            gsap.fromTo(show, 
+              { autoAlpha: 0, y: 20 }, 
+              { autoAlpha: 1, y: 0, duration: 0.4, clearProps: 'all' }
+            );
+          } 
+        });
+      } else {
+        resGrid.style.display  = (target === 'residenciales') ? 'grid' : 'none';
+        corpGrid.style.display = (target === 'corporativos')  ? 'grid' : 'none';
+      }
     });
   });
 

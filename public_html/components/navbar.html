@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Syntask Navbar</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #0f0f17;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'DM Sans', sans-serif;
+      gap: 48px;
+    }
+
+    /* ── WRAPPER: borde reflectivo con gradiente ── */
+    .nav-wrapper {
+      padding: 1px;
+      border-radius: 999px;
+      background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.18) 0%,
+        rgba(255,255,255,0.04) 50%,
+        rgba(255,255,255,0.00) 100%
+      );
+      box-shadow:
+        0 0 0 1px rgba(0,0,0,0.6),
+        0 8px 32px rgba(0,0,0,0.55),
+        0 2px 8px rgba(0,0,0,0.4),
+        inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+
+    nav {
+      background: linear-gradient(180deg, #1c1c28 0%, #141420 100%);
+      border-radius: 999px;
+      padding: 10px 14px 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 780px;
+      max-width: 95vw;
+      gap: 16px;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.07),
+        inset 0 -1px 0 rgba(0,0,0,0.3);
+    }
+
+    .nav-brand {
+      font-size: 13px;
+      font-weight: 500;
+      color: #e2e2e2;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      white-space: nowrap;
+    }
+
+    .nav-brand .reg {
+      font-size: 9px;
+      vertical-align: super;
+      opacity: 0.6;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #9090a0;
+      font-size: 14px;
+      font-weight: 400;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    .nav-cta {
+      background: var(--accent, #2563eb);
+      color: #ffffff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      border: none;
+      border-radius: 999px;
+      padding: 9px 20px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: filter 0.2s ease, box-shadow 0.2s ease;
+      box-shadow:
+        0 2px 12px rgba(var(--accent-rgb, 37,99,235), 0.45),
+        inset 0 1px 0 rgba(255,255,255,0.2),
+        inset 0 -1px 0 rgba(0,0,0,0.15);
+    }
+
+    .nav-cta:hover {
+      filter: brightness(1.15);
+    }
+
+    /* ── COLOR PICKER ── */
+    .picker-panel {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: linear-gradient(180deg, #1c1c28, #141420);
+      border-radius: 999px;
+      padding: 10px 24px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+
+    .picker-label {
+      font-size: 11px;
+      color: #606070;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .swatches {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .swatch {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+      position: relative;
+    }
+
+    .swatch:hover { transform: scale(1.15); }
+
+    .swatch.active { border-color: rgba(255,255,255,0.6); }
+
+    .swatch::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .divider {
+      width: 1px;
+      height: 18px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .custom-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .custom-label {
+      font-size: 11px;
+      color: #505060;
+      letter-spacing: 0.06em;
+    }
+
+    input[type="color"] {
+      width: 26px;
+      height: 26px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      padding: 0;
+      background: none;
+      overflow: hidden;
+      outline: none;
+    }
+
+    input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; border-radius: 50%; }
+    input[type="color"]::-webkit-color-swatch {
+      border: 2px solid rgba(255,255,255,0.15);
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav-wrapper">
+    <nav>
+      <span class="nav-brand">SYNTASK <span class="reg">®</span></span>
+      <ul class="nav-links">
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Resources</a></li>
+        <li><a href="#">Pricing</a></li>
+      </ul>
+      <button class="nav-cta" id="ctaBtn">Sign Up Now</button>
+    </nav>
+  </div>
+
+  <div class="picker-panel">
+    <span class="picker-label">Theme</span>
+    <div class="swatches" id="swatches">
+      <div class="swatch active" data-color="#2563eb" data-rgb="37,99,235"  style="background:#2563eb;"></div>
+      <div class="swatch"        data-color="#7c3aed" data-rgb="124,58,237" style="background:#7c3aed;"></div>
+      <div class="swatch"        data-color="#059669" data-rgb="5,150,105"  style="background:#059669;"></div>
+      <div class="swatch"        data-color="#dc2626" data-rgb="220,38,38"  style="background:#dc2626;"></div>
+      <div class="swatch"        data-color="#d97706" data-rgb="217,119,6"  style="background:#d97706;"></div>
+      <div class="swatch"        data-color="#db2777" data-rgb="219,39,119" style="background:#db2777;"></div>
+    </div>
+    <div class="divider"></div>
+    <div class="custom-wrap">
+      <span class="custom-label">Custom</span>
+      <input type="color" id="colorPicker" value="#2563eb">
+    </div>
+  </div>
+
+  <script>
+    const root = document.documentElement;
+    const btn  = document.getElementById('ctaBtn');
+    const swatches = document.querySelectorAll('.swatch');
+    const picker   = document.getElementById('colorPicker');
+
+    function hexToRgb(hex) {
+      return [1,3,5].map(i => parseInt(hex.slice(i, i+2), 16)).join(',');
+    }
+
+    function applyColor(hex, rgb) {
+      const r = rgb || hexToRgb(hex);
+      root.style.setProperty('--accent', hex);
+      root.style.setProperty('--accent-rgb', r);
+      btn.style.boxShadow = `0 2px 12px rgba(${r},0.45), inset 0 1px 0 rgba(255,255,255,0.2), inset 0 -1px 0 rgba(0,0,0,0.15)`;
+    }
+
+    swatches.forEach(s => {
+      s.addEventListener('click', () => {
+        swatches.forEach(x => x.classList.remove('active'));
+        s.classList.add('active');
+        applyColor(s.dataset.color, s.dataset.rgb);
+        picker.value = s.dataset.color;
+      });
+    });
+
+    picker.addEventListener('input', e => {
+      swatches.forEach(x => x.classList.remove('active'));
+      applyColor(e.target.value);
+    });
+  </script>
+</body>
+</html>
