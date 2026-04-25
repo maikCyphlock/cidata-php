@@ -41,7 +41,7 @@ $status = $_GET['status'] ?? '';
 
       <!-- Mobile Toggle -->
       <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú">
-        <i data-lucide="menu" style="width:20px;height:20px"></i>
+        <iconify-icon icon="uis:bars" width="20" height="20"></iconify-icon>
       </button>
 
       <ul class="nav-links" id="nav-links">
@@ -87,13 +87,13 @@ $status = $_GET['status'] ?? '';
 
           <div class="hero-popup" id="hero-popup">
             <button class="hero-popup-close" id="popup-close" aria-label="Cerrar">
-              <i data-lucide="x" style="width:12px;height:12px"></i>
+              <iconify-icon icon="uis:multiply" width="12" height="12"></iconify-icon>
             </button>
             <div class="hero-popup-title">¿Listo para conectarte?</div>
             <div class="hero-popup-actions">
               <a href="#contacto" class="btn btn-primary btn-sm">Contratar</a>
               <a href="https://wa.me/" class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener">
-                <i data-lucide="message-circle" style="width:13px;height:13px"></i>
+                <iconify-icon icon="uis:comment-dots" width="13" height="13"></iconify-icon>
                 WhatsApp
               </a>
             </div>
@@ -109,7 +109,7 @@ $status = $_GET['status'] ?? '';
       <div class="advantages__grid">
         <article class="c-card c-card--horizontal advantages__card--pink">
           <div class="c-card__icon advantages__icon">
-            <i data-lucide="home"></i>
+            <iconify-icon icon="uis:house-user"></iconify-icon>
           </div>
           <div class="c-card__body">
             <h3 class="c-card__title">Planes a tu medida</h3>
@@ -119,7 +119,7 @@ $status = $_GET['status'] ?? '';
 
         <article class="c-card c-card--horizontal advantages__card--blue">
           <div class="c-card__icon advantages__icon">
-            <i data-lucide="headphones"></i>
+            <iconify-icon icon="uis:stethoscope"></iconify-icon>
           </div>
           <div class="c-card__body">
             <h3 class="c-card__title">Atención humana</h3>
@@ -129,7 +129,7 @@ $status = $_GET['status'] ?? '';
 
         <article class="c-card c-card--horizontal advantages__card--purple">
           <div class="c-card__icon advantages__icon">
-            <i data-lucide="shield-check"></i>
+            <iconify-icon icon="uis:lock"></iconify-icon>
           </div>
           <div class="c-card__body">
             <h3 class="c-card__title">Seguridad Total</h3>
@@ -139,7 +139,7 @@ $status = $_GET['status'] ?? '';
 
         <article class="c-card c-card--horizontal advantages__card--mix">
           <div class="c-card__icon advantages__icon">
-            <i data-lucide="radio"></i>
+            <iconify-icon icon="uis:signal-alt-3"></iconify-icon>
           </div>
           <div class="c-card__body">
             <h3 class="c-card__title">Libertad Digital</h3>
@@ -182,11 +182,11 @@ $status = $_GET['status'] ?? '';
             <div class="stat-desc">Velocidades de hasta 1Gbps en planes residenciales.</div>
           </div>
           <div class="stat">
-            <div class="stat-value"><i data-lucide="signal" style="width:30px;height:30px;color:#a6e6ff"></i></div>
+            <div class="stat-value"><iconify-icon icon="uis:signal-alt-3" style="color:#a6e6ff" width="30" height="30"></iconify-icon></div>
             <div class="stat-desc">Cobertura en la Región Centro Occidental y Los Llanos.</div>
           </div>
           <div class="stat">
-            <div class="stat-value"><i data-lucide="life-buoy" style="width:30px;height:30px;color:#ffb1c3"></i></div>
+            <div class="stat-value"><iconify-icon icon="uis:history" style="color:#ffb1c3" width="30" height="30"></iconify-icon></div>
             <div class="stat-desc">Soporte técnico confiable con atención personalizada.</div>
           </div>
         </div>
@@ -217,8 +217,8 @@ $status = $_GET['status'] ?? '';
               <p class="c-card__description">Ideal para navegación fluida, streaming 4K y teletrabajo.</p>
               <div class="c-card__price"><sup>$</sup>25<span class="c-card__period">/mes</span></div>
               <ul class="c-card__list">
-                <li><i data-lucide="check"></i>Conexión ultra estable</li>
-                <li><i data-lucide="check"></i>Instalación prioritaria</li>
+                <li><iconify-icon icon="uis:check"></iconify-icon>Conexión ultra estable</li>
+                <li><iconify-icon icon="uis:check"></iconify-icon>Instalación prioritaria</li>
               </ul>
             </div>
             <footer class="c-card__footer">
@@ -237,8 +237,8 @@ $status = $_GET['status'] ?? '';
               </p>
               <div class="c-card__price"><sup>$</sup>30<span class="c-card__period">/mes</span></div>
               <ul class="c-card__list">
-                <li><i data-lucide="check"></i>Streaming en varios equipos</li>
-                <li><i data-lucide="check"></i>Excelente balance velocidad/precio</li>
+                <li><iconify-icon icon="uis:check"></iconify-icon>Streaming en varios equipos</li>
+                <li><iconify-icon icon="uis:check"></iconify-icon>Excelente balance velocidad/precio</li>
               </ul>
             </div>
             <footer class="c-card__footer">
@@ -256,8 +256,8 @@ $status = $_GET['status'] ?? '';
               <p class="c-card__description">Ideal para gamers, creadores de contenido y hogares 100% conectados.</p>
               <div class="c-card__price"><sup>$</sup>35<span class="c-card__period">/mes</span></div>
               <ul class="c-card__list">
-                <li><i data-lucide="check"></i>Máxima velocidad residencial</li>
-                <li><i data-lucide="check"></i>Soporte prioritario</li>
+                <li><iconify-icon icon="uis:check"></iconify-icon>Máxima velocidad residencial</li>
+                <li><iconify-icon icon="uis:check"></iconify-icon>Soporte prioritario</li>
               </ul>
             </div>
             <footer class="c-card__footer">
@@ -278,8 +278,8 @@ $status = $_GET['status'] ?? '';
               <p class="c-card__description">Plan corporativo esencial con enlace dedicado y simétrico.</p>
               <div class="c-card__price"><sup>$</sup>100<span class="c-card__period">/mes</span></div>
               <ul class="c-card__list">
-                <li><i data-lucide="check"></i>CIR 1:1 Garantizado</li>
-                <li><i data-lucide="check"></i>Soporte 24/7</li>
+                <li><iconify-icon icon="uis:check"></iconify-icon>CIR 1:1 Garantizado</li>
+                <li><iconify-icon icon="uis:check"></iconify-icon>Soporte 24/7</li>
               </ul>
             </div>
             <footer class="c-card__footer">
@@ -297,8 +297,8 @@ $status = $_GET['status'] ?? '';
               <p class="c-card__description">Conectividad robusta para oficinas medianas y servidores.</p>
               <div class="c-card__price"><sup>$</sup>150<span class="c-card__period">/mes</span></div>
               <ul class="c-card__list">
-                <li><i data-lucide="check"></i>IP Pública Fija</li>
-                <li><i data-lucide="check"></i>Enlace Dedicado</li>
+                <li><iconify-icon icon="uis:check"></iconify-icon>IP Pública Fija</li>
+                <li><iconify-icon icon="uis:check"></iconify-icon>Enlace Dedicado</li>
               </ul>
             </div>
             <footer class="c-card__footer">
@@ -316,8 +316,8 @@ $status = $_GET['status'] ?? '';
               <p class="c-card__description">Alta disponibilidad para empresas con alta demanda de datos.</p>
               <div class="c-card__price"><sup>$</sup>200<span class="c-card__period">/mes</span></div>
               <ul class="c-card__list">
-                <li><i data-lucide="check"></i>Fibra Óptica Directa</li>
-                <li><i data-lucide="check"></i>Monitoreo Proactivo</li>
+                <li><iconify-icon icon="uis:check"></iconify-icon>Fibra Óptica Directa</li>
+                <li><iconify-icon icon="uis:check"></iconify-icon>Monitoreo Proactivo</li>
               </ul>
             </div>
             <footer class="c-card__footer">
@@ -335,8 +335,8 @@ $status = $_GET['status'] ?? '';
               <p class="c-card__description">Máximo rendimiento corporativo para operaciones críticas.</p>
               <div class="c-card__price"><sup>$</sup>250<span class="c-card__period">/mes</span></div>
               <ul class="c-card__list">
-                <li><i data-lucide="check"></i>SLA Garantizado 99.9%</li>
-                <li><i data-lucide="check"></i>Soporte VIP Directo</li>
+                <li><iconify-icon icon="uis:check"></iconify-icon>SLA Garantizado 99.9%</li>
+                <li><iconify-icon icon="uis:check"></iconify-icon>Soporte VIP Directo</li>
               </ul>
             </div>
             <footer class="c-card__footer">
@@ -394,7 +394,7 @@ $status = $_GET['status'] ?? '';
 
         <div class="coverage-visual">
           <div class="placeholder">
-            <i data-lucide="truck" style="width:48px;height:48px;margin-bottom:12px"></i>
+            <iconify-icon icon="uis:rocket" style="margin-bottom:12px" width="48" height="48"></iconify-icon>
             <div>Cobertura que llega<br>hasta tu puerta</div>
           </div>
         </div>
@@ -428,9 +428,9 @@ $status = $_GET['status'] ?? '';
             <article class="review">
               <div class="review__stars">
                 <?php for ($i = 1; $i <= 5; $i++): ?>
-                  <i data-lucide="star"
+                  <iconify-icon icon="uis:star"
                     class="review__star <?= $i <= $rev['rating'] ? 'review__star--active' : 'review__star--empty' ?>"
-                    style="width:14px;height:14px;"></i>
+                    width="14" height="14"></iconify-icon>
                 <?php endfor; ?>
               </div>
               <blockquote class="review__body">
@@ -449,9 +449,9 @@ $status = $_GET['status'] ?? '';
             <article class="review" aria-hidden="true">
               <div class="review__stars">
                 <?php for ($i = 1; $i <= 5; $i++): ?>
-                  <i data-lucide="star"
+                  <iconify-icon icon="uis:star"
                     class="review__star <?= $i <= $rev['rating'] ? 'review__star--active' : 'review__star--empty' ?>"
-                    style="width:14px;height:14px;"></i>
+                    width="14" height="14"></iconify-icon>
                 <?php endfor; ?>
               </div>
               <blockquote class="review__body">
@@ -493,8 +493,7 @@ $status = $_GET['status'] ?? '';
             <p class="post-card__excerpt">Comparación práctica entre planes. Descubre qué velocidad necesitas según tus
               dispositivos y hábitos de consumo.</p>
             <footer class="post-card__footer">
-              <a href="#" class="post-card__link">Leer más <i data-lucide="arrow-right"
-                  style="width:14px;height:14px"></i></a>
+              <a href="#" class="post-card__link">Leer más <iconify-icon icon="uis:angle-right-b" width="14" height="14"></iconify-icon></a>
             </footer>
           </div>
         </article>
@@ -511,8 +510,7 @@ $status = $_GET['status'] ?? '';
             <p class="post-card__excerpt">Ventajas clave en estabilidad y latencia. Entiende por qué la fibra es la
               tecnología definitiva para el gaming y trabajo.</p>
             <footer class="post-card__footer">
-              <a href="#" class="post-card__link">Leer más <i data-lucide="arrow-right"
-                  style="width:14px;height:14px"></i></a>
+              <a href="#" class="post-card__link">Leer más <iconify-icon icon="uis:angle-right-b" width="14" height="14"></iconify-icon></a>
             </footer>
           </div>
         </article>
@@ -529,8 +527,7 @@ $status = $_GET['status'] ?? '';
             <p class="post-card__excerpt">Consejos sencillos sobre ubicación y configuración para eliminar las zonas
               muertas en tu hogar.</p>
             <footer class="post-card__footer">
-              <a href="#" class="post-card__link">Leer más <i data-lucide="arrow-right"
-                  style="width:14px;height:14px"></i></a>
+              <a href="#" class="post-card__link">Leer más <iconify-icon icon="uis:angle-right-b" width="14" height="14"></iconify-icon></a>
             </footer>
           </div>
         </article>
@@ -547,8 +544,7 @@ $status = $_GET['status'] ?? '';
             <p class="post-card__excerpt">Guía rápida para usar nuestro portal de pagos. Ahorra tiempo reportando tus
               facturas desde cualquier lugar.</p>
             <footer class="post-card__footer">
-              <a href="#" class="post-card__link">Leer más <i data-lucide="arrow-right"
-                  style="width:14px;height:14px"></i></a>
+              <a href="#" class="post-card__link">Leer más <iconify-icon icon="uis:angle-right-b" width="14" height="14"></iconify-icon></a>
             </footer>
           </div>
         </article>
@@ -566,61 +562,105 @@ $status = $_GET['status'] ?? '';
       <div class="contact-inner">
 
         <div class="contact-visual">
-          <div class="contact-visual-brand">
-            <div class="logo-big">cidata</div>
-            <div class="tagline">internet por <em>Fibra Óptica</em></div>
+          <div class="contact-visual-content">
+            <div class="contact-visual-brand">
+              <div class="logo-big">cidata</div>
+              <div class="tagline">internet por <em>Fibra Óptica</em></div>
+            </div>
+
+            <div class="contact-info-list">
+              <a href="https://wa.me/" class="contact-info-item contact-info-item--wa" target="_blank" rel="noopener">
+                <span class="contact-info-icon"><iconify-icon icon="uis:comment-dots" width="18" height="18"></iconify-icon></span>
+                <div>
+                  <span class="contact-info-label">WhatsApp</span>
+                  <span class="contact-info-value">Atención inmediata</span>
+                </div>
+              </a>
+              <a href="tel:" class="contact-info-item">
+                <span class="contact-info-icon"><iconify-icon icon="uis:record-audio" width="18" height="18"></iconify-icon></span>
+                <div>
+                  <span class="contact-info-label">Teléfono</span>
+                  <span class="contact-info-value">Llámanos directamente</span>
+                </div>
+              </a>
+              <div class="contact-info-item">
+                <span class="contact-info-icon"><iconify-icon icon="uis:clock" width="18" height="18"></iconify-icon></span>
+                <div>
+                  <span class="contact-info-label">Horario de atención</span>
+                  <span class="contact-info-value">Lun–Vie 8:00–18:00 / Sáb 9:00–13:00</span>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <span class="contact-info-icon"><iconify-icon icon="uis:direction" width="18" height="18"></iconify-icon></span>
+                <div>
+                  <span class="contact-info-label">Cobertura</span>
+                  <span class="contact-info-value">Consulta disponibilidad en tu zona</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="contact-form-wrap">
+          <span class="contact-badge"><iconify-icon icon="uis:rocket" width="12" height="12"></iconify-icon> Contacto</span>
           <h2>Hablemos de tu conexión</h2>
-          <p class="contact-intro">¿Tienes dudas sobre planes, cobertura o soporte técnico? Completa el formulario y te
-            respondemos a la brevedad.</p>
+          <p class="contact-intro">¿Tienes dudas sobre planes, cobertura o soporte técnico? Completá el formulario y te respondemos a la brevedad.</p>
 
           <?php if ($status === 'ok'): ?>
-            <div class="flash success"><strong>¡Listo!</strong> Recibimos tu solicitud. Te contactamos muy pronto.</div>
+            <div class="flash success">
+              <iconify-icon icon="uis:check-circle" style="flex-shrink:0" width="16" height="16"></iconify-icon>
+              <span><strong>¡Listo!</strong> Recibimos tu solicitud. Te contactamos muy pronto.</span>
+            </div>
           <?php elseif ($status === 'error'): ?>
-            <div class="flash error">Hubo un problema al enviar. Intenta de nuevo o escríbenos por WhatsApp.</div>
+            <div class="flash error">
+              <iconify-icon icon="uis:exclamation-circle" style="flex-shrink:0" width="16" height="16"></iconify-icon>
+              <span>Hubo un problema al enviar. Intenta de nuevo o escríbenos por WhatsApp.</span>
+            </div>
           <?php endif; ?>
 
           <form action="send-mail.php" method="post" novalidate>
             <div class="form-row">
               <div class="form-group">
-                <label class="form-label" for="nombre">Nombre</label>
-                <input class="form-input" type="text" id="nombre" name="nombre" required maxlength="80">
+                <label class="form-label" for="nombre">Nombre <span class="form-required">*</span></label>
+                <input class="form-input" type="text" id="nombre" name="nombre" required maxlength="80" placeholder="Tu nombre">
               </div>
               <div class="form-group">
                 <label class="form-label" for="apellido">Apellido</label>
-                <input class="form-input" type="text" id="apellido" name="apellido" maxlength="80">
+                <input class="form-input" type="text" id="apellido" name="apellido" maxlength="80" placeholder="Tu apellido">
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group">
                 <label class="form-label" for="email">Email</label>
-                <input class="form-input" type="email" id="email" name="email" maxlength="120">
+                <input class="form-input" type="email" id="email" name="email" maxlength="120" placeholder="correo@ejemplo.com">
               </div>
               <div class="form-group">
-                <label class="form-label" for="telefono">Teléfono</label>
-                <input class="form-input" type="tel" id="telefono" name="telefono" required maxlength="20">
+                <label class="form-label" for="telefono">Teléfono <span class="form-required">*</span></label>
+                <input class="form-input" type="tel" id="telefono" name="telefono" required maxlength="20" placeholder="+54 381 000-0000">
               </div>
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="direccion">Dirección (calle, sector, ciudad)</label>
-              <input class="form-input" type="text" id="direccion" name="direccion" required maxlength="200">
+              <label class="form-label" for="direccion">Dirección <span class="form-required">*</span></label>
+              <input class="form-input" type="text" id="direccion" name="direccion" required maxlength="200" placeholder="Calle, sector, ciudad">
             </div>
 
             <div class="form-group">
               <label class="form-label" for="mensaje">Mensaje</label>
-              <textarea class="form-textarea" id="mensaje" name="mensaje" maxlength="1000"></textarea>
+              <textarea class="form-textarea" id="mensaje" name="mensaje" maxlength="1000" placeholder="¿En qué podemos ayudarte?"></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary">Enviar</button>
-
-            <p class="contact-whatsapp-note">
-              Estas dudas y quejas serán respondidas por WhatsApp a la brevedad.
-            </p>
+            <div class="contact-form-actions">
+              <button type="submit" class="btn btn-primary btn-lg contact-submit">
+                <iconify-icon icon="uis:rocket" width="16" height="16"></iconify-icon>
+                Enviar consulta
+              </button>
+              <a href="https://wa.me/" class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener">
+                <iconify-icon icon="uis:comment-dots" width="16" height="16"></iconify-icon>
+                WhatsApp
+              </a>
+            </div>
           </form>
         </div>
 
@@ -667,18 +707,15 @@ $status = $_GET['status'] ?? '';
       <div class="footer-bottom">
         <div class="footer-copy">&copy; <?= date('Y') ?> Cidata. Todos los derechos reservados.</div>
         <div class="footer-social">
-          <a class="social-btn" href="#" aria-label="Instagram"><i data-lucide="instagram"
-              style="width:16px;height:16px"></i></a>
-          <a class="social-btn" href="#" aria-label="Facebook"><i data-lucide="facebook"
-              style="width:16px;height:16px"></i></a>
-          <a class="social-btn" href="https://wa.me/" target="_blank" rel="noopener" aria-label="WhatsApp"><i
-              data-lucide="message-circle" style="width:16px;height:16px"></i></a>
+          <a class="social-btn" href="#" aria-label="Instagram"><iconify-icon icon="uis:image-v" width="16" height="16"></iconify-icon></a>
+          <a class="social-btn" href="#" aria-label="Facebook"><iconify-icon icon="uis:bookmark" width="16" height="16"></iconify-icon></a>
+          <a class="social-btn" href="https://wa.me/" target="_blank" rel="noopener" aria-label="WhatsApp"><iconify-icon icon="uis:comment-dots" width="16" height="16"></iconify-icon></a>
         </div>
       </div>
     </div>
   </footer>
 
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>

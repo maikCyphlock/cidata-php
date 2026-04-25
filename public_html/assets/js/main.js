@@ -1,8 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-  // ── Lucide icons ──
-  if (typeof lucide !== 'undefined') lucide.createIcons();
-
   // ── Hero popup close ──
   var popup = document.getElementById('hero-popup');
   var popupClose = document.getElementById('popup-close');
@@ -17,24 +14,18 @@ document.addEventListener('DOMContentLoaded', function () {
   if (navToggle && navLinks) {
     navToggle.addEventListener('click', function () {
       navLinks.classList.toggle('open');
-      // Change icon to X if open
-      var icon = navToggle.querySelector('i');
+      var icon = navToggle.querySelector('iconify-icon');
       if (icon) {
         var isOpening = navLinks.classList.contains('open');
-        icon.setAttribute('data-lucide', isOpening ? 'x' : 'menu');
-        if (typeof lucide !== 'undefined') lucide.createIcons();
+        icon.setAttribute('icon', isOpening ? 'uis:times' : 'uis:bars');
       }
     });
 
-    // Close menu when clicking a link
     navLinks.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
         navLinks.classList.remove('open');
-        var icon = navToggle.querySelector('i');
-        if (icon) {
-          icon.setAttribute('data-lucide', 'menu');
-          if (typeof lucide !== 'undefined') lucide.createIcons();
-        }
+        var icon = navToggle.querySelector('iconify-icon');
+        if (icon) icon.setAttribute('icon', 'uis:bars');
       });
     });
   }
