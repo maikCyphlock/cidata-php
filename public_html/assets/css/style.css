@@ -53,7 +53,7 @@
     --on-primary-container: oklch(100% 0 0);
 
     /* Secondary (Electric Blue) */
-    --secondary: oklch(85% 0.12 240);
+    --secondary: oklch(0.61 0.23 258.21);
     --secondary-container: oklch(75% 0.18 240);
     --on-secondary: oklch(25% 0.1 240);
 
@@ -202,8 +202,8 @@
   .btn-primary {
     background: var(--accent);
     color: #fff;
-    box-shadow: 
-      0 0 0 4px oklch(from var(--accent) l c h / 0.15), 
+    box-shadow:
+      0 0 0 4px oklch(from var(--accent) l c h / 0.15),
       0 2px 12px oklch(from var(--accent) l c h / 0.4);
   }
 
@@ -213,17 +213,15 @@
 
   /* Secondary (Electric Blue) */
   .btn-secondary {
-    background: oklch(from var(--secondary) l c h / 0.1);
-    color: var(--secondary);
-    border: 1.5px solid oklch(from var(--secondary) l c h / 0.3);
-    box-shadow: 0 2px 10px oklch(from var(--secondary) l c h / 0.12);
+    background: var(--secondary);
+    color: #fff;
+    box-shadow:
+      0 0 0 4px oklch(from var(--secondary) l c h / 0.15),
+      0 2px 12px oklch(from var(--secondary) l c h / 0.4);
   }
 
   .btn-secondary:hover {
-    background: oklch(from var(--secondary) l c h / 0.2);
-    box-shadow: 
-      0 0 0 4px oklch(from var(--secondary) l c h / 0.12), 
-      0 2px 16px oklch(from var(--secondary) l c h / 0.35);
+    filter: brightness(1.12);
   }
 
   /* Ghost — outline sobre fondos oscuros */
@@ -679,7 +677,7 @@
     background: #fff;
     padding: 12px;
     border-radius: var(--radius-2xl);
-    box-shadow: 
+    box-shadow:
       0 10px 40px rgba(0, 0, 0, 0.08),
       0 0 0 1px rgba(0, 0, 0, 0.02);
     rotate: 2deg;
@@ -1000,8 +998,13 @@
   }
 
   @keyframes reviews-scroll {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
   }
 
   .review {
