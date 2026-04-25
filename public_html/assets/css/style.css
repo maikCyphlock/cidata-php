@@ -287,33 +287,7 @@
     transform: scaleX(1);
   }
 
-  @media (max-width: 900px) {
-    .nav-links {
-      display: none;
-    }
 
-    .nav-links.open {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: var(--surface-container);
-      border-top: 1px solid var(--outline-dim);
-      padding: 12px 24px 20px;
-    }
-
-    .nav-links.open a {
-      padding: 14px 0;
-      border-bottom: 1px solid var(--outline-dim);
-    }
-
-    .nav-links.open a:last-child {
-      border-bottom: none;
-    }
-  }
 
   /* ── HERO ── */
   .hero {

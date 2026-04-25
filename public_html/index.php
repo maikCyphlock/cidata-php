@@ -39,7 +39,12 @@ $status = $_GET['status'] ?? '';
         <img src="assets/img/logo-white.png" alt="Cidata">
       </a>
 
-      <ul class="nav-links">
+      <!-- Mobile Toggle -->
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú">
+        <i data-lucide="menu" style="width:20px;height:20px"></i>
+      </button>
+
+      <ul class="nav-links" id="nav-links">
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#planes">Planes</a></li>
         <li><a href="#nosotros">Nosotros</a></li>

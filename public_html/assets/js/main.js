@@ -10,6 +10,35 @@ document.addEventListener('DOMContentLoaded', function () {
     popupClose.addEventListener('click', function () { popup.classList.add('hidden'); });
   }
 
+  // ── Mobile Menu Toggle ──
+  var navToggle = document.getElementById('nav-toggle');
+  var navLinks = document.getElementById('nav-links');
+
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', function () {
+      navLinks.classList.toggle('open');
+      // Change icon to X if open
+      var icon = navToggle.querySelector('i');
+      if (icon) {
+        var isOpening = navLinks.classList.contains('open');
+        icon.setAttribute('data-lucide', isOpening ? 'x' : 'menu');
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+      }
+    });
+
+    // Close menu when clicking a link
+    navLinks.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        navLinks.classList.remove('open');
+        var icon = navToggle.querySelector('i');
+        if (icon) {
+          icon.setAttribute('data-lucide', 'menu');
+          if (typeof lucide !== 'undefined') lucide.createIcons();
+        }
+      });
+    });
+  }
+
   // ── Plans tabs ──
   var tabs = document.querySelectorAll('.plans-tab');
   var resGrid = document.getElementById('residenciales-grid');

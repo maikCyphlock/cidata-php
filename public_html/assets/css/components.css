@@ -107,20 +107,89 @@ nav {
 
 }
 
+/* NAV TOGGLE */
+.nav-toggle {
+    display: none;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+.nav-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
 @media (max-width: 950px) {
+    .nav-toggle {
+        display: grid;
+        place-items: center;
+        order: 2;
+    }
+
+    .nav-logo {
+        order: 1;
+    }
+
+    .btn-primary {
+        order: 3;
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+
     .nav-links {
         display: none;
+        position: absolute;
+        top: calc(100% + 12px);
+        left: 0;
+        right: 0;
+        background: #1c1c28;
+        border-radius: 24px;
+        padding: 24px;
+        flex-direction: column;
+        gap: 16px;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+        z-index: 10;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.3s, transform 0.3s;
+        pointer-events: none;
+    }
+
+    .nav-links.open {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .nav-links a {
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+        padding: 8px;
+        display: block;
     }
 
     nav {
-        width: auto;
-        gap: 16px;
+        width: 100%;
+        max-width: 92vw;
+        gap: 12px;
+        padding: 8px 12px 8px 16px;
     }
 
     .nav-wrapper {
-        top: 12px;
+        top: 16px;
+        width: calc(100% - 32px);
+        max-width: 500px;
     }
 }
+
 
 /* ── GENERIC CARD ── */
 .c-card {
