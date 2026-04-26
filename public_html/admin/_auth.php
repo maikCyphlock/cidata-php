@@ -20,13 +20,13 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_set_cookie_params([
         'lifetime' => 0,            // session cookie (expires on browser close)
-        'path'     => '/',
-        'secure'   => false,        // set to true when HTTPS is enabled
+        'path' => '/',
+        'secure' => true,        // set to true when HTTPS is enabled
         'httponly' => true,
         'samesite' => 'Strict',
     ]);
     ini_set('session.use_strict_mode', '1');
-    ini_set('session.gc_maxlifetime',  '3600');
+    ini_set('session.gc_maxlifetime', '3600');
     session_start();
 }
 
@@ -97,7 +97,7 @@ function csrf_token(): string
 function csrf_check(): void
 {
     $submitted = $_POST['_csrf'] ?? '';
-    $stored    = $_SESSION['csrf_token'] ?? '';
+    $stored = $_SESSION['csrf_token'] ?? '';
 
     if ($stored === '' || !hash_equals($stored, $submitted)) {
         http_response_code(403);
