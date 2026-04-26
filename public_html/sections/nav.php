@@ -2,7 +2,7 @@
   <div class="nav-wrapper">
     <nav>
       <a href="#" class="nav-logo">
-        <img src="assets/img/logo-white.png" alt="Cidata">
+        <img src="/assets/img/logo-white.png" alt="Cidata">
       </a>
 
       <!-- Mobile Toggle -->

@@ -11,13 +11,13 @@
   <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Nunito+Sans:wght@400;600;700&display=swap"
     as="style">
-  <link rel="preload" href="assets/img/woman.png" as="image" fetchpriority="high">
+  <link rel="preload" href="/assets/img/woman.png" as="image" fetchpriority="high">
 
   <!-- Styles -->
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Nunito+Sans:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" media="print"
     onload="this.media='all'">
   <noscript>

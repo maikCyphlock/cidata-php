@@ -1,0 +1,408 @@
+/* ============================================================
+   admin.css — Minimal admin panel styles for CIDATA
+   Dark-neutral palette to clearly distinguish from public site
+   ============================================================ */
+
+/* ----- Reset & base ---------------------------------------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    background: #1a1c22;
+    color: #d4d8e1;
+    min-height: 100vh;
+}
+
+a {
+    color: #5b9cf6;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #82b4f8;
+}
+
+/* ----- Nav -------------------------------------------------- */
+.admin-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0 1.5rem;
+    height: 52px;
+    background: #111318;
+    border-bottom: 1px solid #2e3240;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.admin-nav__brand {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #fff;
+    margin-right: auto;
+    letter-spacing: 0.03em;
+}
+
+.admin-nav__links {
+    list-style: none;
+    display: flex;
+    gap: 0.25rem;
+}
+
+.admin-nav__links a {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    border-radius: 4px;
+    color: #a0a8bc;
+    font-size: 0.85rem;
+    transition: background 0.15s, color 0.15s;
+}
+
+.admin-nav__links a:hover {
+    background: #2a2e3d;
+    color: #d4d8e1;
+    text-decoration: none;
+}
+
+.admin-nav__links a.nav-logout {
+    color: #f87171;
+}
+
+.admin-nav__links a.nav-logout:hover {
+    background: #3d1f1f;
+    color: #fca5a5;
+}
+
+/* ----- Main container --------------------------------------- */
+.admin-main {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1.25rem 3rem;
+}
+
+h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1.25rem;
+}
+
+h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #c8cdd9;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* ----- Flash messages -------------------------------------- */
+.flash {
+    padding: 0.65rem 1rem;
+    border-radius: 5px;
+    margin-bottom: 1.25rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.flash--success {
+    background: #14291f;
+    border: 1px solid #22543d;
+    color: #68d391;
+}
+
+.flash--error {
+    background: #2c1515;
+    border: 1px solid #742a2a;
+    color: #fc8181;
+}
+
+.flash--warn {
+    background: #2d2510;
+    border: 1px solid #744210;
+    color: #f6ad55;
+}
+
+/* ----- Table ----------------------------------------------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #20232d;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+thead tr {
+    background: #181b24;
+    text-align: left;
+}
+
+th {
+    padding: 0.6rem 0.9rem;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #7a82a0;
+    border-bottom: 1px solid #2e3240;
+}
+
+td {
+    padding: 0.6rem 0.9rem;
+    border-bottom: 1px solid #2a2d3a;
+    color: #c4c9d9;
+    vertical-align: middle;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:nth-child(even) {
+    background: #1d2029;
+}
+
+tbody tr:hover {
+    background: #252a38;
+}
+
+/* ----- Forms ----------------------------------------------- */
+.form-card {
+    background: #20232d;
+    border: 1px solid #2e3240;
+    border-radius: 6px;
+    padding: 1.5rem;
+    max-width: 680px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #9aa0b4;
+    margin-bottom: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group input[type="url"],
+.form-group input[type="email"],
+.form-group select,
+.form-group textarea {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.7rem;
+    background: #13151c;
+    border: 1px solid #3a3f52;
+    border-radius: 4px;
+    color: #d4d8e1;
+    font-size: 0.9rem;
+    font-family: inherit;
+    transition: border-color 0.15s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #5b9cf6;
+}
+
+.form-group textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.form-group select option {
+    background: #13151c;
+}
+
+/* Inline checkbox row */
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.form-check input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    accent-color: #5b9cf6;
+    cursor: pointer;
+}
+
+.form-check label {
+    font-size: 0.88rem;
+    color: #9aa0b4;
+    cursor: pointer;
+}
+
+.form-hint {
+    font-size: 0.77rem;
+    color: #626880;
+    margin-top: 0.2rem;
+}
+
+/* ----- Buttons --------------------------------------------- */
+.btn {
+    display: inline-block;
+    padding: 0.45rem 1rem;
+    border-radius: 4px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+    text-decoration: none;
+    line-height: 1.4;
+}
+
+.btn-primary {
+    background: #2c5282;
+    border-color: #3a6aaa;
+    color: #e8f0fe;
+}
+
+.btn-primary:hover {
+    background: #3560a0;
+    border-color: #5b9cf6;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-secondary {
+    background: #2a2e3d;
+    border-color: #3a3f52;
+    color: #a0a8bc;
+}
+
+.btn-secondary:hover {
+    background: #353a4d;
+    color: #d4d8e1;
+    text-decoration: none;
+}
+
+.btn-danger {
+    background: #742a2a;
+    border-color: #9b2c2c;
+    color: #fed7d7;
+}
+
+.btn-danger:hover {
+    background: #9b2c2c;
+    border-color: #c53030;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-sm {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.8rem;
+}
+
+/* ----- Action row (table action links) --------------------- */
+.actions {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+
+/* ----- Dashboard stat cards -------------------------------- */
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: #20232d;
+    border: 1px solid #2e3240;
+    border-radius: 6px;
+    padding: 1.2rem 1rem;
+    text-align: center;
+}
+
+.stat-card__number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #5b9cf6;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+}
+
+.stat-card__label {
+    font-size: 0.82rem;
+    color: #7a82a0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ----- Login page (used by login.php, not _layout.php) ----- */
+body.login-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-card {
+    background: #20232d;
+    border: 1px solid #2e3240;
+    border-radius: 8px;
+    padding: 2rem 2.25rem;
+    width: 100%;
+    max-width: 360px;
+}
+
+.login-title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.btn--primary {
+    background: #2c5282;
+    border-color: #3a6aaa;
+    color: #e8f0fe;
+}
+
+.btn--primary:hover {
+    background: #3560a0;
+    border-color: #5b9cf6;
+}
+
+.btn--full {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+/* page-level heading + action row */
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.page-header h1 {
+    margin-bottom: 0;
+}

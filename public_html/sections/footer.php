@@ -3,7 +3,7 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <img src="assets/img/logo-white.png" alt="Cidata" class="footer-logo" width="160" height="46" loading="lazy">
+          <img src="/assets/img/logo-white.png" alt="Cidata" class="footer-logo" width="160" height="46" loading="lazy">
           <p class="footer-tagline">
             Internet por fibra óptica para hogares y empresas en Portuguesa y la Región Centro Occidental. Rápido,
             confiable y sin vueltas.
@@ -49,4 +49,4 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script src="assets/js/main.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>

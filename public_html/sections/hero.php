@@ -1,16 +1,25 @@
+<?php
+require $_SERVER['DOCUMENT_ROOT'] . '/../db.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/helpers.php';
+$hero_eyebrow           = get_setting($pdo, 'hero_eyebrow',           'Internet por Fibra Óptica');
+$hero_headline          = get_setting($pdo, 'hero_headline',          'Internet sin límites');
+$hero_headline_highlight = get_setting($pdo, 'hero_headline_highlight', 'hogar y tu negocio');
+$hero_sub               = get_setting($pdo, 'hero_sub',               'Planes de Internet por fibra óptica en Portuguesa y la Región Centro Occidental. Velocidad simétrica, instalación rápida y soporte real.');
+?>
   <!-- ═══════════════════════ HERO ═══════════════════════ -->
   <section class="hero" id="inicio">
     <div class="container">
       <div class="hero-inner">
         <div class="hero-text">
-          <span class="hero-eyebrow">Internet por Fibra Óptica</span>
+          <span class="hero-eyebrow"><?= htmlspecialchars($hero_eyebrow, ENT_QUOTES, 'UTF-8') ?></span>
           <h1 class="hero-headline">
-            Internet sin límites<br>
-            para tu <span class="hl-grad">hogar y tu negocio</span>
+            <?= htmlspecialchars($hero_headline, ENT_QUOTES, 'UTF-8') ?><br>
+            <?php if (!empty($hero_headline_highlight)): ?>
+            para tu <span class="hl-grad"><?= htmlspecialchars($hero_headline_highlight, ENT_QUOTES, 'UTF-8') ?></span>
+            <?php endif; ?>
           </h1>
           <p class="hero-sub">
-            Planes de Internet por fibra óptica en Portuguesa y la Región Centro Occidental.
-            Velocidad simétrica, instalación rápida y soporte real.
+            <?= htmlspecialchars($hero_sub, ENT_QUOTES, 'UTF-8') ?>
           </p>
           <div class="hero-actions">
             <a href="#planes" class="btn btn-secondary btn-lg">Ver planes</a>
@@ -20,7 +29,7 @@
 
         <div class="hero-visual">
           <div class="hero-visual-frame">
-            <img src="assets/img/woman.png" alt="Cidata fibra óptica" width="826" height="1024" fetchpriority="high">
+            <img src="/assets/img/woman.png" alt="Cidata fibra óptica" width="826" height="1024" fetchpriority="high">
           </div>
 
           <div class="hero-popup" id="hero-popup">
