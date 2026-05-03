@@ -1,7 +1,7 @@
   <!-- ═══════════════════════ NAV ═══════════════════════ -->
   <div class="nav-wrapper">
     <nav>
-      <a href="#" class="nav-logo">
+      <a href="/" class="nav-logo">
         <img src="/assets/img/logo-white.png" alt="Cidata">
       </a>
 
@@ -11,14 +11,15 @@
       </button>
 
       <ul class="nav-links" id="nav-links">
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#planes">Planes</a></li>
-        <li><a href="#nosotros">Nosotros</a></li>
-        <li><a href="#noticias">Noticias</a></li>
-        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="/#inicio">Inicio</a></li>
+        <li><a href="/#planes">Planes</a></li>
+        <li><a href="/#nosotros">Nosotros</a></li>
+        <li><a href="/#noticias">Noticias</a></li>
+        <li><a href="/#contacto">Contacto</a></li>
+        <li><a href="https://cidata.neogisp.com/website_payment_ve/PGC-00017">Pagar</a></li>
       </ul>
 
-      <a href="#contacto" class="btn-primary">
+      <a href="/#contacto" class="btn-primary">
         Contratar ahora
       </a>
     </nav>

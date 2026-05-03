@@ -34,7 +34,7 @@
 /* ── NAV WRAPPER ── */
 .nav-wrapper {
     position: fixed;
-    top: 24px;
+    top: 12px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;

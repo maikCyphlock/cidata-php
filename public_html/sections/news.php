@@ -30,7 +30,7 @@ $posts = $pdo->query('SELECT * FROM news_posts WHERE active = 1 ORDER BY publish
             <p class="post-card__excerpt"><?= htmlspecialchars($post['excerpt'], ENT_QUOTES, 'UTF-8') ?></p>
             <?php endif; ?>
             <footer class="post-card__footer">
-              <a href="#" class="post-card__link">Leer más <iconify-icon icon="uis:angle-right-b" width="14" height="14"></iconify-icon></a>
+              <a href="/noticia/<?= $post['slug'] ?>" class="post-card__link">Leer más <iconify-icon icon="uis:angle-right-b" width="14" height="14"></iconify-icon></a>
             </footer>
           </div>
         </article>
@@ -39,7 +39,7 @@ $posts = $pdo->query('SELECT * FROM news_posts WHERE active = 1 ORDER BY publish
       <?php endif; ?>
 
       <div class="news__cta">
-        <a href="#" class="btn btn-secondary">Ver todas las noticias</a>
+        <a href="/noticias" class="btn btn-secondary">Ver todas las noticias</a>
       </div>
     </div>
   </section>
