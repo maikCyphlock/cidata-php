@@ -432,7 +432,7 @@
   /* Hero popup */
   .hero-popup {
     position: absolute;
-    left: 24px;
+    left: 55%;
     bottom: -28px;
     z-index: 3;
     background: var(--glass-bg);
@@ -1651,4 +1651,30 @@
   .leaflet-tile {
     filter: hue-rotate(180deg) invert(1) brightness(.95) contrast(.9);
   }
+}
+/* ── NEWS PAGES CUSTOM ── */
+.news-page .section-title,
+.news-detail .section-title {
+    color: #f3f4f6 !important;
+}
+
+.news-page .news__intro {
+    color: #d1d5db !important;
+}
+
+.post-card__title--light {
+    color: #f3f4f6 !important;
+}
+
+.post-detail__content-text {
+    color: #f3f4f6;
+}
+
+.post-detail__body {
+    color: #d1d5db;
+}
+
+.post-detail__empty-msg {
+    color: #9ca3af;
+    font-style: italic;
 }
